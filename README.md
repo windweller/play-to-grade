@@ -1,5 +1,7 @@
 # Play to Grade
 
+<img src="https://github.com/windweller/play-to-grade/blob/main/images/thumbnail.png?raw=true" style='height: 295.6px; width: 175.4px;'>
+
 We include our training and model code for the two environments: Car and Bounce.
 We provide the Jupyter notebook for easy re-running of our experiment.
 
