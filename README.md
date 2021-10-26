@@ -2,11 +2,11 @@
 
 A correct program:
 
-<img src="https://media.giphy.com/media/LhC4oRHFahkxvryfQA/giphy.gif">
+<img src="https://media.giphy.com/media/LhC4oRHFahkxvryfQA/giphy.gif" style='height: 150px; width: 150px;'>
 
 An incorrect program:
 
-<img src="https://media.giphy.com/media/i8ITbB6QtNS67t9dk6/giphy.gif">
+<img src="https://media.giphy.com/media/i8ITbB6QtNS67t9dk6/giphy.gif"  style='height: 150px; width: 150px;'>
 
 <img src="https://github.com/windweller/play-to-grade/blob/main/images/thumbnail.png?raw=true" style='height: 295.6px; width: 175.4px;'>
 
