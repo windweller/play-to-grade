@@ -1,0 +1,10 @@
+{"when run": ["launch new ball"],
+  "when left arrow": ["move left"],
+  "when right arrow": [],
+  "when ball hits paddle": ["bounce ball"],
+  "when ball hits wall": ["bounce ball"],
+  "when ball in goal": ["score point",
+                        "launch new ball"],
+  "when ball misses paddle": ["score opponent point",
+                              "launch new ball"]}
+

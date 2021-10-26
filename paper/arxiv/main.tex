@@ -1,0 +1,1219 @@
+\documentclass{article}
+
+
+\usepackage{amsmath,amsfonts,bm}
+
+\newcommand{\figleft}{{\em (Left)}}
+\newcommand{\figcenter}{{\em (Center)}}
+\newcommand{\figright}{{\em (Right)}}
+\newcommand{\figtop}{{\em (Top)}}
+\newcommand{\figbottom}{{\em (Bottom)}}
+\newcommand{\captiona}{{\em (a)}}
+\newcommand{\captionb}{{\em (b)}}
+\newcommand{\captionc}{{\em (c)}}
+\newcommand{\captiond}{{\em (d)}}
+
+\newcommand{\newterm}[1]{{\bf #1}}
+
+
+\def\figref#1{figure~\ref{#1}}
+\def\Figref#1{Figure~\ref{#1}}
+\def\twofigref#1#2{figures \ref{#1} and \ref{#2}}
+\def\quadfigref#1#2#3#4{figures \ref{#1}, \ref{#2}, \ref{#3} and \ref{#4}}
+\def\secref#1{section~\ref{#1}}
+\def\Secref#1{Section~\ref{#1}}
+\def\twosecrefs#1#2{sections \ref{#1} and \ref{#2}}
+\def\secrefs#1#2#3{sections \ref{#1}, \ref{#2} and \ref{#3}}
+\def\eqref#1{equation~\ref{#1}}
+\def\Eqref#1{Equation~\ref{#1}}
+\def\plaineqref#1{\ref{#1}}
+\def\chapref#1{chapter~\ref{#1}}
+\def\Chapref#1{Chapter~\ref{#1}}
+\def\rangechapref#1#2{chapters\ref{#1}--\ref{#2}}
+\def\algref#1{algorithm~\ref{#1}}
+\def\Algref#1{Algorithm~\ref{#1}}
+\def\twoalgref#1#2{algorithms \ref{#1} and \ref{#2}}
+\def\Twoalgref#1#2{Algorithms \ref{#1} and \ref{#2}}
+\def\partref#1{part~\ref{#1}}
+\def\Partref#1{Part~\ref{#1}}
+\def\twopartref#1#2{parts \ref{#1} and \ref{#2}}
+
+\def\ceil#1{\lceil #1 \rceil}
+\def\floor#1{\lfloor #1 \rfloor}
+\def\1{\bm{1}}
+\newcommand{\train}{\mathcal{D}}
+\newcommand{\valid}{\mathcal{D_{\mathrm{valid}}}}
+\newcommand{\test}{\mathcal{D_{\mathrm{test}}}}
+
+\def\eps{{\epsilon}}
+
+
+\def\reta{{\textnormal{$\eta$}}}
+\def\ra{{\textnormal{a}}}
+\def\rb{{\textnormal{b}}}
+\def\rc{{\textnormal{c}}}
+\def\rd{{\textnormal{d}}}
+\def\re{{\textnormal{e}}}
+\def\rf{{\textnormal{f}}}
+\def\rg{{\textnormal{g}}}
+\def\rh{{\textnormal{h}}}
+\def\ri{{\textnormal{i}}}
+\def\rj{{\textnormal{j}}}
+\def\rk{{\textnormal{k}}}
+\def\rl{{\textnormal{l}}}
+\def\rn{{\textnormal{n}}}
+\def\ro{{\textnormal{o}}}
+\def\rp{{\textnormal{p}}}
+\def\rq{{\textnormal{q}}}
+\def\rr{{\textnormal{r}}}
+\def\rs{{\textnormal{s}}}
+\def\rt{{\textnormal{t}}}
+\def\ru{{\textnormal{u}}}
+\def\rv{{\textnormal{v}}}
+\def\rw{{\textnormal{w}}}
+\def\rx{{\textnormal{x}}}
+\def\ry{{\textnormal{y}}}
+\def\rz{{\textnormal{z}}}
+
+\def\rvepsilon{{\mathbf{\epsilon}}}
+\def\rvtheta{{\mathbf{\theta}}}
+\def\rva{{\mathbf{a}}}
+\def\rvb{{\mathbf{b}}}
+\def\rvc{{\mathbf{c}}}
+\def\rvd{{\mathbf{d}}}
+\def\rve{{\mathbf{e}}}
+\def\rvf{{\mathbf{f}}}
+\def\rvg{{\mathbf{g}}}
+\def\rvh{{\mathbf{h}}}
+\def\rvu{{\mathbf{i}}}
+\def\rvj{{\mathbf{j}}}
+\def\rvk{{\mathbf{k}}}
+\def\rvl{{\mathbf{l}}}
+\def\rvm{{\mathbf{m}}}
+\def\rvn{{\mathbf{n}}}
+\def\rvo{{\mathbf{o}}}
+\def\rvp{{\mathbf{p}}}
+\def\rvq{{\mathbf{q}}}
+\def\rvr{{\mathbf{r}}}
+\def\rvs{{\mathbf{s}}}
+\def\rvt{{\mathbf{t}}}
+\def\rvu{{\mathbf{u}}}
+\def\rvv{{\mathbf{v}}}
+\def\rvw{{\mathbf{w}}}
+\def\rvx{{\mathbf{x}}}
+\def\rvy{{\mathbf{y}}}
+\def\rvz{{\mathbf{z}}}
+
+\def\erva{{\textnormal{a}}}
+\def\ervb{{\textnormal{b}}}
+\def\ervc{{\textnormal{c}}}
+\def\ervd{{\textnormal{d}}}
+\def\erve{{\textnormal{e}}}
+\def\ervf{{\textnormal{f}}}
+\def\ervg{{\textnormal{g}}}
+\def\ervh{{\textnormal{h}}}
+\def\ervi{{\textnormal{i}}}
+\def\ervj{{\textnormal{j}}}
+\def\ervk{{\textnormal{k}}}
+\def\ervl{{\textnormal{l}}}
+\def\ervm{{\textnormal{m}}}
+\def\ervn{{\textnormal{n}}}
+\def\ervo{{\textnormal{o}}}
+\def\ervp{{\textnormal{p}}}
+\def\ervq{{\textnormal{q}}}
+\def\ervr{{\textnormal{r}}}
+\def\ervs{{\textnormal{s}}}
+\def\ervt{{\textnormal{t}}}
+\def\ervu{{\textnormal{u}}}
+\def\ervv{{\textnormal{v}}}
+\def\ervw{{\textnormal{w}}}
+\def\ervx{{\textnormal{x}}}
+\def\ervy{{\textnormal{y}}}
+\def\ervz{{\textnormal{z}}}
+
+\def\rmA{{\mathbf{A}}}
+\def\rmB{{\mathbf{B}}}
+\def\rmC{{\mathbf{C}}}
+\def\rmD{{\mathbf{D}}}
+\def\rmE{{\mathbf{E}}}
+\def\rmF{{\mathbf{F}}}
+\def\rmG{{\mathbf{G}}}
+\def\rmH{{\mathbf{H}}}
+\def\rmI{{\mathbf{I}}}
+\def\rmJ{{\mathbf{J}}}
+\def\rmK{{\mathbf{K}}}
+\def\rmL{{\mathbf{L}}}
+\def\rmM{{\mathbf{M}}}
+\def\rmN{{\mathbf{N}}}
+\def\rmO{{\mathbf{O}}}
+\def\rmP{{\mathbf{P}}}
+\def\rmQ{{\mathbf{Q}}}
+\def\rmR{{\mathbf{R}}}
+\def\rmS{{\mathbf{S}}}
+\def\rmT{{\mathbf{T}}}
+\def\rmU{{\mathbf{U}}}
+\def\rmV{{\mathbf{V}}}
+\def\rmW{{\mathbf{W}}}
+\def\rmX{{\mathbf{X}}}
+\def\rmY{{\mathbf{Y}}}
+\def\rmZ{{\mathbf{Z}}}
+
+\def\ermA{{\textnormal{A}}}
+\def\ermB{{\textnormal{B}}}
+\def\ermC{{\textnormal{C}}}
+\def\ermD{{\textnormal{D}}}
+\def\ermE{{\textnormal{E}}}
+\def\ermF{{\textnormal{F}}}
+\def\ermG{{\textnormal{G}}}
+\def\ermH{{\textnormal{H}}}
+\def\ermI{{\textnormal{I}}}
+\def\ermJ{{\textnormal{J}}}
+\def\ermK{{\textnormal{K}}}
+\def\ermL{{\textnormal{L}}}
+\def\ermM{{\textnormal{M}}}
+\def\ermN{{\textnormal{N}}}
+\def\ermO{{\textnormal{O}}}
+\def\ermP{{\textnormal{P}}}
+\def\ermQ{{\textnormal{Q}}}
+\def\ermR{{\textnormal{R}}}
+\def\ermS{{\textnormal{S}}}
+\def\ermT{{\textnormal{T}}}
+\def\ermU{{\textnormal{U}}}
+\def\ermV{{\textnormal{V}}}
+\def\ermW{{\textnormal{W}}}
+\def\ermX{{\textnormal{X}}}
+\def\ermY{{\textnormal{Y}}}
+\def\ermZ{{\textnormal{Z}}}
+
+\def\vzero{{\bm{0}}}
+\def\vone{{\bm{1}}}
+\def\vmu{{\bm{\mu}}}
+\def\vtheta{{\bm{\theta}}}
+\def\va{{\bm{a}}}
+\def\vb{{\bm{b}}}
+\def\vc{{\bm{c}}}
+\def\vd{{\bm{d}}}
+\def\ve{{\bm{e}}}
+\def\vf{{\bm{f}}}
+\def\vg{{\bm{g}}}
+\def\vh{{\bm{h}}}
+\def\vi{{\bm{i}}}
+\def\vj{{\bm{j}}}
+\def\vk{{\bm{k}}}
+\def\vl{{\bm{l}}}
+\def\vm{{\bm{m}}}
+\def\vn{{\bm{n}}}
+\def\vo{{\bm{o}}}
+\def\vp{{\bm{p}}}
+\def\vq{{\bm{q}}}
+\def\vr{{\bm{r}}}
+\def\vs{{\bm{s}}}
+\def\vt{{\bm{t}}}
+\def\vu{{\bm{u}}}
+\def\vv{{\bm{v}}}
+\def\vw{{\bm{w}}}
+\def\vx{{\bm{x}}}
+\def\vy{{\bm{y}}}
+\def\vz{{\bm{z}}}
+
+\def\evalpha{{\alpha}}
+\def\evbeta{{\beta}}
+\def\evepsilon{{\epsilon}}
+\def\evlambda{{\lambda}}
+\def\evomega{{\omega}}
+\def\evmu{{\mu}}
+\def\evpsi{{\psi}}
+\def\evsigma{{\sigma}}
+\def\evtheta{{\theta}}
+\def\eva{{a}}
+\def\evb{{b}}
+\def\evc{{c}}
+\def\evd{{d}}
+\def\eve{{e}}
+\def\evf{{f}}
+\def\evg{{g}}
+\def\evh{{h}}
+\def\evi{{i}}
+\def\evj{{j}}
+\def\evk{{k}}
+\def\evl{{l}}
+\def\evm{{m}}
+\def\evn{{n}}
+\def\evo{{o}}
+\def\evp{{p}}
+\def\evq{{q}}
+\def\evr{{r}}
+\def\evs{{s}}
+\def\evt{{t}}
+\def\evu{{u}}
+\def\evv{{v}}
+\def\evw{{w}}
+\def\evx{{x}}
+\def\evy{{y}}
+\def\evz{{z}}
+
+\def\mA{{\bm{A}}}
+\def\mB{{\bm{B}}}
+\def\mC{{\bm{C}}}
+\def\mD{{\bm{D}}}
+\def\mE{{\bm{E}}}
+\def\mF{{\bm{F}}}
+\def\mG{{\bm{G}}}
+\def\mH{{\bm{H}}}
+\def\mI{{\bm{I}}}
+\def\mJ{{\bm{J}}}
+\def\mK{{\bm{K}}}
+\def\mL{{\bm{L}}}
+\def\mM{{\bm{M}}}
+\def\mN{{\bm{N}}}
+\def\mO{{\bm{O}}}
+\def\mP{{\bm{P}}}
+\def\mQ{{\bm{Q}}}
+\def\mR{{\bm{R}}}
+\def\mS{{\bm{S}}}
+\def\mT{{\bm{T}}}
+\def\mU{{\bm{U}}}
+\def\mV{{\bm{V}}}
+\def\mW{{\bm{W}}}
+\def\mX{{\bm{X}}}
+\def\mY{{\bm{Y}}}
+\def\mZ{{\bm{Z}}}
+\def\mBeta{{\bm{\beta}}}
+\def\mPhi{{\bm{\Phi}}}
+\def\mLambda{{\bm{\Lambda}}}
+\def\mSigma{{\bm{\Sigma}}}
+
+\DeclareMathAlphabet{\mathsfit}{\encodingdefault}{\sfdefault}{m}{sl}
+\SetMathAlphabet{\mathsfit}{bold}{\encodingdefault}{\sfdefault}{bx}{n}
+\newcommand{\tens}[1]{\bm{\mathsfit{#1}}}
+\def\tA{{\tens{A}}}
+\def\tB{{\tens{B}}}
+\def\tC{{\tens{C}}}
+\def\tD{{\tens{D}}}
+\def\tE{{\tens{E}}}
+\def\tF{{\tens{F}}}
+\def\tG{{\tens{G}}}
+\def\tH{{\tens{H}}}
+\def\tI{{\tens{I}}}
+\def\tJ{{\tens{J}}}
+\def\tK{{\tens{K}}}
+\def\tL{{\tens{L}}}
+\def\tM{{\tens{M}}}
+\def\tN{{\tens{N}}}
+\def\tO{{\tens{O}}}
+\def\tP{{\tens{P}}}
+\def\tQ{{\tens{Q}}}
+\def\tR{{\tens{R}}}
+\def\tS{{\tens{S}}}
+\def\tT{{\tens{T}}}
+\def\tU{{\tens{U}}}
+\def\tV{{\tens{V}}}
+\def\tW{{\tens{W}}}
+\def\tX{{\tens{X}}}
+\def\tY{{\tens{Y}}}
+\def\tZ{{\tens{Z}}}
+
+
+\def\gA{{\mathcal{A}}}
+\def\gB{{\mathcal{B}}}
+\def\gC{{\mathcal{C}}}
+\def\gD{{\mathcal{D}}}
+\def\gE{{\mathcal{E}}}
+\def\gF{{\mathcal{F}}}
+\def\gG{{\mathcal{G}}}
+\def\gH{{\mathcal{H}}}
+\def\gI{{\mathcal{I}}}
+\def\gJ{{\mathcal{J}}}
+\def\gK{{\mathcal{K}}}
+\def\gL{{\mathcal{L}}}
+\def\gM{{\mathcal{M}}}
+\def\gN{{\mathcal{N}}}
+\def\gO{{\mathcal{O}}}
+\def\gP{{\mathcal{P}}}
+\def\gQ{{\mathcal{Q}}}
+\def\gR{{\mathcal{R}}}
+\def\gS{{\mathcal{S}}}
+\def\gT{{\mathcal{T}}}
+\def\gU{{\mathcal{U}}}
+\def\gV{{\mathcal{V}}}
+\def\gW{{\mathcal{W}}}
+\def\gX{{\mathcal{X}}}
+\def\gY{{\mathcal{Y}}}
+\def\gZ{{\mathcal{Z}}}
+
+\def\sA{{\mathbb{A}}}
+\def\sB{{\mathbb{B}}}
+\def\sC{{\mathbb{C}}}
+\def\sD{{\mathbb{D}}}
+\def\sF{{\mathbb{F}}}
+\def\sG{{\mathbb{G}}}
+\def\sH{{\mathbb{H}}}
+\def\sI{{\mathbb{I}}}
+\def\sJ{{\mathbb{J}}}
+\def\sK{{\mathbb{K}}}
+\def\sL{{\mathbb{L}}}
+\def\sM{{\mathbb{M}}}
+\def\sN{{\mathbb{N}}}
+\def\sO{{\mathbb{O}}}
+\def\sP{{\mathbb{P}}}
+\def\sQ{{\mathbb{Q}}}
+\def\sR{{\mathbb{R}}}
+\def\sS{{\mathbb{S}}}
+\def\sT{{\mathbb{T}}}
+\def\sU{{\mathbb{U}}}
+\def\sV{{\mathbb{V}}}
+\def\sW{{\mathbb{W}}}
+\def\sX{{\mathbb{X}}}
+\def\sY{{\mathbb{Y}}}
+\def\sZ{{\mathbb{Z}}}
+
+\def\emLambda{{\Lambda}}
+\def\emA{{A}}
+\def\emB{{B}}
+\def\emC{{C}}
+\def\emD{{D}}
+\def\emE{{E}}
+\def\emF{{F}}
+\def\emG{{G}}
+\def\emH{{H}}
+\def\emI{{I}}
+\def\emJ{{J}}
+\def\emK{{K}}
+\def\emL{{L}}
+\def\emM{{M}}
+\def\emN{{N}}
+\def\emO{{O}}
+\def\emP{{P}}
+\def\emQ{{Q}}
+\def\emR{{R}}
+\def\emS{{S}}
+\def\emT{{T}}
+\def\emU{{U}}
+\def\emV{{V}}
+\def\emW{{W}}
+\def\emX{{X}}
+\def\emY{{Y}}
+\def\emZ{{Z}}
+\def\emSigma{{\Sigma}}
+
+\newcommand{\etens}[1]{\mathsfit{#1}}
+\def\etLambda{{\etens{\Lambda}}}
+\def\etA{{\etens{A}}}
+\def\etB{{\etens{B}}}
+\def\etC{{\etens{C}}}
+\def\etD{{\etens{D}}}
+\def\etE{{\etens{E}}}
+\def\etF{{\etens{F}}}
+\def\etG{{\etens{G}}}
+\def\etH{{\etens{H}}}
+\def\etI{{\etens{I}}}
+\def\etJ{{\etens{J}}}
+\def\etK{{\etens{K}}}
+\def\etL{{\etens{L}}}
+\def\etM{{\etens{M}}}
+\def\etN{{\etens{N}}}
+\def\etO{{\etens{O}}}
+\def\etP{{\etens{P}}}
+\def\etQ{{\etens{Q}}}
+\def\etR{{\etens{R}}}
+\def\etS{{\etens{S}}}
+\def\etT{{\etens{T}}}
+\def\etU{{\etens{U}}}
+\def\etV{{\etens{V}}}
+\def\etW{{\etens{W}}}
+\def\etX{{\etens{X}}}
+\def\etY{{\etens{Y}}}
+\def\etZ{{\etens{Z}}}
+
+\newcommand{\pdata}{p_{\rm{data}}}
+\newcommand{\ptrain}{\hat{p}_{\rm{data}}}
+\newcommand{\Ptrain}{\hat{P}_{\rm{data}}}
+\newcommand{\pmodel}{p_{\rm{model}}}
+\newcommand{\Pmodel}{P_{\rm{model}}}
+\newcommand{\ptildemodel}{\tilde{p}_{\rm{model}}}
+\newcommand{\pencode}{p_{\rm{encoder}}}
+\newcommand{\pdecode}{p_{\rm{decoder}}}
+\newcommand{\precons}{p_{\rm{reconstruct}}}
+
+\newcommand{\laplace}{\mathrm{Laplace}} %
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Ls}{\mathcal{L}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\emp}{\tilde{p}}
+\newcommand{\lr}{\alpha}
+\newcommand{\reg}{\lambda}
+\newcommand{\rect}{\mathrm{rectifier}}
+\newcommand{\softmax}{\mathrm{softmax}}
+\newcommand{\sigmoid}{\sigma}
+\newcommand{\softplus}{\zeta}
+\newcommand{\KL}{D_{\mathrm{KL}}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\standarderror}{\mathrm{SE}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\normlzero}{L^0}
+\newcommand{\normlone}{L^1}
+\newcommand{\normltwo}{L^2}
+\newcommand{\normlp}{L^p}
+\newcommand{\normmax}{L^\infty}
+
+\newcommand{\parents}{Pa} %
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\DeclareMathOperator{\sign}{sign}
+\DeclareMathOperator{\Tr}{Tr}
+\let\ab\allowbreak
+
+
+
+\usepackage[final]{neurips_2021}
+
+\usepackage[square,sort,comma,numbers]{natbib}
+
+
+
+\usepackage[utf8]{inputenc} %
+\usepackage[T1]{fontenc}    %
+\usepackage{hyperref}       %
+\usepackage{url}            %
+\usepackage{booktabs}       %
+\usepackage{amsfonts}       %
+\usepackage{nicefrac}       %
+\usepackage{microtype}      %
+\usepackage{xcolor}         %
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+
+\usepackage{enumitem}
+
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+\usepackage{forloop}
+\usepackage[ruled]{algorithm2e}
+\usepackage{algpseudocode}
+
+\usepackage{caption}
+
+\usepackage{bbm}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\newtheorem{definition}{Definition}[section]
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+\newcommand{\bugcls}{bug classifiers~}
+
+\newcommand{\dashsecref}[2]{Sections~\ref{#1}--\ref{#2}}
+\newcommand{\Defref}[1]{Definition~\ref{#1}}
+\newcommand{\defref}[1]{Definition~\ref{#1}}
+\newcommand{\dashfigref}[2]{Figures~\ref{#1}--\ref{#2}}
+\newcommand{\Tabref}[1]{Table~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}
+\newcommand{\Appref}[1]{Appendix~\ref{#1}}
+\newcommand{\appref}[1]{Appendix~\ref{#1}}
+
+
+
+\newcommand{\OurTask}{The challenge~} %
+
+\newcommand{\TODO}[1]{{\color{red}#1}}
+\newcommand{\EDIT}[1]{#1}%
+\newcommand{\PIECH}[1]{#1}%
+
+
+\title{Play to Grade: Testing Coding Games as Classifying Markov Decision Process}
+
+
+
+
+
+
+
+
+
+\author{%
+    Allen Nie\thanks{\texttt{anie@stanford.edu}}\\
+    Computer Science \\
+    Stanford University\\
+    \And
+    Emma Brunskill\\
+    Computer Science \\
+    Stanford University\\
+    \And
+    Chris Piech\\
+    Computer Science \\
+    Stanford University\\
+}
+\begin{document}
+
+\maketitle
+
+
+\begin{abstract}
+Contemporary coding education often presents students with the task of developing programs that have user interaction and complex dynamic systems, such as mouse based games. While pedagogically compelling, there are no contemporary autonomous methods for providing feedback. Notably, interactive programs are impossible to grade by traditional unit tests. 
+In this paper we formalize the challenge of providing feedback to interactive programs as a task of classifying Markov Decision Processes (MDPs).
+Each student's program fully specifies an MDP where the agent needs to operate and decide, under reasonable generalization, if the dynamics and reward model of the input MDP should be categorized as correct or broken.
+We demonstrate that by designing a cooperative objective between an agent and an autoregressive model, we can use the agent to sample differential trajectories from the input MDP that allows a classifier to determine membership: Play to Grade. 
+Our method enables an automatic feedback system for interactive code assignments. 
+We release a dataset of 711,274 anonymized student submissions to a single assignment with hand-coded bug labels to support future research.
+\end{abstract}
+
+\section{Introduction}
+\vspace{-2mm} 
+
+The need for high quality education at scale is of critical importance \citep{bowen2012cost}. While delivery of content for millions of students is possible, providing feedback -- a cornerstone of education -- remains an open challenge. The quality of an online education platform depends on the feedback it can provide to its students. However contemporary coding education has a clear limitation. Students are able to get automatic feedback only up until they start writing interactive programs. When a student authors a program that requires \emph{user interaction}, e.g. where a user interacts with the student's program using a mouse (such as a game), or by clicking on button (such as in a graphical user interface) it becomes exceedingly difficult to grade automatically. Even for well defined challenges, if the user has any creative discretion, or the problem involves any randomness, the task of automatically assessing the work is daunting. This is especially true as coding has become more popular and feedback is required for many students. One popular intro to programming platform, Code.org has over 61 million enrolled students \cite{code.org}. For their many interactive assignments they have no ability to even identify if a student has a working solution.
+
+Why is providing feedback to interactive programs so hard? The standard way to provide feedback is through human labor. Teachers need to interact with each student’s program for 20 seconds to 10 minutes in order to grade. This may seem small, but for the quantity of unique programs on a platform such as Code.org that amounts to approximately 9.5 years of human effort to provide feedback for a single assignment. Code.org has tried crowdsourcing feedback from hundreds of thousands of teachers which has fallen short for similar reasons: labelling is hard and undesirable work \cite{codehints}. 
+Interactive assignments can not be auto graded as running the program requires \emph{dynamic} input. Moreover, heavily scaffolded assignments -- ones that force students to program their interactive programs in a way that enables standard testing -- are considered to be a sub-par learning experience for students and are not common in contemporary classrooms.
+
+There is a long history of work towards providing feedback to students working on open ended assignments which has shown that automatically providing feedback based on code text is a hard machine learning problem \citep{piech2015deep,basu2013powergrading,yan_pyramid,wang2017learning,liu2019automated,hu2019reliable}. This is true for many reasons. 
+Even for introductory level computer science education, homework datasets have statistical distributions with heavy tails similar to natural language ~\citep{wu2019zero}. Moreover, these distributions tend to be highly discontinuous -- two solutions which are only slightly different in text can be very different in its behavior. As such, approaches to grading which rely only on reading the text of a students code end up being as complex as understanding a passage of natural language \cite{malik2021generative}. Finally, because feedback is necessary for the first student working on an assignment, not just the millionth, and new assignments are often introduced, the challenge is inherently few shot.
+
+In this work we show that an algorithm that learns to interact with a student's assignment, to \emph{play} with the student work, can enable new capacity for understanding student work. A collaborative system which can simultaneously learn to understand what type of behavior is undesirable, as well as play student's work to actively trigger these undesirable behaviors, is the crucial first step to developing automatic and intelligent feedback for massive online coding education.
+
+\paragraph{Our contributions:}
+
+\begin{itemize}[leftmargin=*]
+    \item We introduce the reinforcement learning challenge of \textit{Play to Grade}. 
+    \item We propose a collaborative algorithm where an agent simultaneously learns to play a game and recognize what states are bug inducing states. %
+    \item Our solution obtains 93.4\%-94.0\% accuracy on a real-world coding dataset provided by Code.org. We gained a 19-25 percentage point improvement over grading programs via code text.
+    \item We release a Bounce dataset of student submissions \EDIT{with ground truth bug labels} and an OpenAI-Gym compatible environment to support further research:  \url{https://github.com/windweller/play-to-grade}.
+\end{itemize}
+
+
+\subsection{Related Work}
+\vspace{-2mm} 
+
+
+
+
+\paragraph{Education feedback} 
+The quality of an online education platform depends on the feedback it can provide to its students. Low quality or missing feedback can greatly reduce motivation for students to continue engaging with the exercise~\cite{o2014hint}.
+Currently, platforms like Code.org that offers block-based programming use syntactic analysis to construct hints and feedbacks~\cite{price2017position}. 
+Using recurrent neural networks to understanding programs through code text has also been well-explored, focusing on providing code-level feedbacks or correcting syntactical errors~\citep{piech2015learning,bhatia2016automated}.
+Other works generate hints based on writing complicated automatic syntax tree~\cite{rivers2017data,paassen2017continuous}, which could place heavy burden on teachers and education platforms.
+The current state-of-the-art introduces a method for providing coding feedback that works for assignments up to approximately 10 lines of code~\cite{wu2019zero}. 
+The method does not easily generalize to longer and more complicated programs.
+We take inspiration that the underlying code can vary but the correct behaviors should all be the same.
+Our method sidesteps the complexity of static code analysis and instead focus on analyzing the MDP specified by the game environment.
+Our work is complementary to these methods because we provide a new tool of analysis for understanding a program's behavior and providing feedback beyond static text analysis.
+
+\EDIT{\paragraph{Reinforcement learning for software testing} Designing automated test for software has been well-explored by using template-based test case generation ~\cite{hu2011automating} and input fuzzing~\cite{aschermann2020ijon}. Recently, there have been a lot of interests in using RL agents to find bugs in games. The most prevalent solution is an agent that heavily focuses on exploring new states~\cite{mohamed2015variational,pathak2017curiosity,eysenbach2018diversity,ecoffet2019go}. Such agent optimizes an objective such as discretely counting the number of states the agent can reach~\cite{zheng2019wuji} or use curiosity objective to encourage visiting new states~\cite{zhan2018taking,gordillo2021improving}. They all rely on the strong assumption that once a bug state is reached, we will be able to know that the state is a bug. We show that exploration (or reaching the bug state) is only half of the challenge. However, it is possible that these pure-exploration agents or input fuzzing can provide additional diverse trajectories to further optimize the bug classifier. The idea of pairing a RL agent with a predictive model is also explored in safe RL, such as predicting whether a state is unsafe~\cite{saunders2017trial,uesato2018rigorous} and training agents to seek out unsafe states~\cite{prakash2019improving,reddy2020learning}.}
+
+
+
+\section{The Play to Grade Challenge}
+\vspace{-2mm} 
+
+In this section we are going to introduce a novel challenge for the machine learning community: how can an algorithm learn how to ``play" with a student submission in order to understand the ways in which it might be buggy? The challenge applies to the task of giving feedback for any interactive student work. In this paper we will focus on games typical of introduction to programming courses. 
+
+We formulate the challenge with constraints that are often found in the real world. Given an interactive coding assignment, a teacher often has  a few solution implementations of the assignment. We also assume that the teacher can prepare a few incorrect implementations that represent their ``best guesses'' of what a wrong program should look like. This sets up a few shot challenge where an algorithm must learn to generalize from the few teacher examples, to the tens-of-thousands (or more) unlabeled combinations of mistakes and invariances found in natural student code.
+
+
+\begin{definition}
+A deterministic \textbf{Markov Decision Process (MDP)} is a 4-tuple M = <$\gS, \gA, T, R$>, where $\gS$ is a set of states; $\gA$ is a set of actions; $T: \gS \times \gA \rightarrow S$ is the transition dynamics; and $R: \gS \times \gA \rightarrow \R$ is the reward function.
+\end{definition}
+We can consider each student implementation of the interactive assignment as a separate MDP. Shared structures between these MDPs can be leveraged to train a grading algorithm. The first assumption that we take is that all MDPs share the same action space $\gA$. This is not a difficult requirement to satisfy because specifying how a game should be played is often part of the instruction for the homework. The second assumption is that all MDPs in this set share the same state space $\gS$. This can be satisfied in two ways: 1) If the algorithm takes game objects' positions and dynamics as input, we can design the state space to include as much information as possible (i.e., grab all objects on the canvas); 2) If the algorithm takes screenshots/images of game play, then the state space is trivially the same, up to a scaling factor. 
+
+To formalize this setting, we consider a \emph{training} dataset, $\train$, of \EDIT{$n$} programs, each fully specifies an environment and its dynamics: $\train = \{(M_n=(\gS, \gA, T_n, R_n), y_n): n=1,2,3,...\}$, where $y_n \in \{0, 1\}$ is a binary label for the MDP $M_n$, and a set of programs similarly specified to be tested in $\test$. We note that $n$ is often a small number, usually less than 20, significantly fewer than other supervised learning tasks. $y=0$ means the game has no bug, and $y=1$ means the game has at least one bug.
+The training objective is to correctly assign a label $\hat y_n$ for each $M_n$. \PIECH{The play-to-grade challenge is to show that a system trained on this few-shot training data can be generalized to accurately identify bugs for all students in the class.}
+Though our work focuses on the binary \EDIT{bug} labeling, our proposed algorithms are not inherently limited by this. We leave multi-class \EDIT{bug} labeling \EDIT{(i.e., which bug is discovered in the MDP)} for future work and note they can provide even larger impacts on generating fine-grained feedbacks to student assignments. 
+
+ 
+
+
+
+\subsection{Equivalence Relations in MDP}
+\vspace{-2mm} 
+
+
+The study of equivalence relations in MDPs and labelled transition systems has a long history. Previous works focus on determining equivalence relations of states in order to condense state representations for easier policy learning~\cite{ravindran2001symmetries,givan2003equivalence,ferns2004metrics,li2006towards,van2020plannable}. The general notion is that if two states are equivalent, they should receive similar reward and lead to a similar next state. Therefore, a distance measure $d$ can be defined to judge whether two states are equivalent.
+
+\EDIT{To solve the play to grade challenge}, instead of considering whether two states are equivalent, we \EDIT{can try to determine} whether \EDIT{the} two MDPs are the same. If the reference MDP has reward function $R$ and transition function $T$, we only need to know if $\tilde T$ and $\tilde R$ from the new MDP are the same as the reference MDP. Unfortunately, since we cannot directly compare the parametrized functional forms, we extend the distance metric developed by~\cite{ferns2004metrics} from state equivalence relations to MDP equivalence relations by sum over all state in Eq~\ref{eq:mdp_distance}. We can use any norm to measure distance of next state for continuous state space, and use an indicator function if the state is discrete. We can use $\alpha$ and $\beta$ to decide how much we weigh the difference between MDPs.
+\begin{align}
+    D(M, \tilde M) = \sum_{s \in \tilde \gS} \max_a \alpha |R(s, a) - \tilde R(s, a)| + \beta \| T(s, a) - \tilde T(s, a) \|
+\label{eq:mdp_distance}
+\end{align}
+However, we will not be able to compute $D(M, \tilde M)$ exactly for non-tabular MDPs because we cannot efficiently enumerate over all possible states. Our goal is to find some kind of difference between the two MDPs so that we can confidently reject the notion that the given MDP $\tilde M$ is the same as our reference MDP $M$. Therefore, instead of calculating the difference between the two MDPs over all states, we only need a subset of states where the difference is the most significant. As long as we can discover a subset of states, or even one state where a significant difference occurred, we can decide that two MDPs are not the same. We call these states the \textbf{differential states}.
+The difficulty of \OurTask is determined by the cardinality of the differential states.
+
+\subsection{Play to Grade Objective}
+\vspace{-2mm} 
+
+The objective is to reach differential states so that we can confidently \PIECH{determine if the student solution is sufficiently different from a reference MDP:} $D(M, \tilde M) > \nu$, where $\nu$ is chosen by the teacher, and can be thought of as some fault tolerance level. Because $D(M, \tilde M)$ is a summation over norms, identifying some or any differential states would trivially satisfy this objective. We can rewrite this existential search objective as an optimization instead. We can define a new MDP where the reward function is the difference on $(s, a)$, and the rest are the same as $\tilde M$. We can obtain a policy that learns to maximize this reward, which is equivalent to searching for differential states by sampling \textbf{differential trajectories} between two MDPs: 
+\begin{align}
+d(s, a) &= \alpha |R(s, a) - \tilde R(s, a)| + \beta \| T(s, a) - \tilde T(s, a) \| \label{eq:state_distance} \\
+\pi &= \argmax_\pi \E_{(s, a) \sim \pi} \Big[ \mathbbm{1}(d(s, a) > \delta) \Big] \label{eq:policy_search}
+\end{align}
+Now that we have a clear optimization objective that we can solve it using any reinforcement learning algorithm, we must consider another difficulty. Even though the MDP framework provides a simple abstraction to the problem we face, we do not have real access to the underlying reward and transition function. Given a state $s$ from $\tilde M$ and action $a$ from $\pi(s)$, we are unable to directly query the reference MDP $M$ for $T(s, a)$ and $R(s, a)$. This is because we are in an episodic setting, where the direct access to transition function and reward function is not possible. Also, we generally assume that each episode will have a random initial state $s_0 \sim p(s_0)$ (i.e., in breakout, the ball gets launched at a different downward direction each time you play). This randomness is defined internally and does not allow for outside control (such as seeding). This means we can't simply use one policy $\pi$ to sample two trajectories from both MDPs and directly compare the reward and the next state.
+
+
+
+
+
+\section{Recognizing Bugs}
+\vspace{-2mm} 
+
+The main challenge of solving this task is: if we know what differential states look like (i.e., have a good state distance function $d(s, a)$), we can directly train an agent to reach these states; conversely, if we have a good agent that can reliably reach these differential states all the time, we can find a good $d(s, a)$. The fact that we have neither, is the \textit{cold-start} problem of this challenge. 
+
+We will address the \textit{cold-start} problem in the next section, but first, if we assume that we do have a good policy that can generate differential trajectories, how should we parametrize and learn a distance function $\hat d(s, a)$ that recognizes $(s, a)$ does not belong to the reference MDP? We introduce a few baselines and propose two methods that have a good inductive bias to recognize differential states. 
+
+
+
+
+\subsection{Baseline: Noisy Supervised Learning}
+\label{sec:naive_sup}
+\vspace{-2mm} 
+
+A good distance function can be learned with noisy supervised learning. Since we have a small set of labelled MDPs (i.e., $(M, y=0)$, $(M, y=1)$) in our training dataset $\train$, we can label all state-action tuples sampled from the correct MDP as no-bug, and all state-action tuples from the incorrect MDP as bug, and train a supervised classifier. We define the state classification function that we use to label state-action tuples as $\phi: \gS \times \gA \times \gS \rightarrow \{0, 1\}$. $\phi(\tilde s, \tilde a, \tilde s') = 0$ if $(\tilde s, \tilde a, \tilde s')$ are sampled by evaluating $\pi$ on $M$, otherwise they are sampled from $\tilde M$.
+
+
+
+
+\subsection{Baseline: Unsupervised Learning}
+\label{sec:naive_unsup}
+\vspace{-2mm} 
+
+Another baseline idea is to learn the distribution of $(s, a)$ sampled from $M$. 
+We can train a generative model on $(s, a, s')$ triples collected from $(M, y=0)$. The model can optimize to approximate a joint distribution $p_\theta(s, a, s')$.
+We compare a Gaussian mixture model and a variational autoencoder~\cite{kingma2013auto} as our generative model of choice. 
+We turn our generative model into a classification function, using the same $\phi$ from Section 3.1:
+$\phi(\tilde s, \tilde a, \tilde s') \triangleq p_{\theta}(\tilde s, \tilde a, \tilde s') \geq \sigma$. 
+For both baseline algorithms, we can assign a label to the new MDP $\tilde M$ by computing $\hat D(M, \tilde M) = \E_{(s, a) \sim \pi, \tilde M} [\phi(s, a, \tilde T(s, a))]$ and set a decision threshold $\hat D(M, \tilde M) \geq \nu$.
+
+\subsection{HoareLSTM} 
+\label{sec:hoarelstm}
+\vspace{-2mm} 
+
+
+Since the policy samples sequential observations from an MDP, it is natural to calculate distance as a form of unexpectedness between predicted state and observed state. In fact, the programming language community has been looking into a triple of pre/post-condition along with an action input for a long time. These are called \textit{Hoare triples}~\cite{hoare1969axiomatic}. They have also been extended to measure state equivalence in MDP~\cite{castro2009equivalence}. Previous work in computational education has used them to learn program embeddings for generating feedbacks~\cite{piech2015learning}.
+
+We can approximate the distance function $d(s, a)$ in Eq~\ref{eq:state_distance} by learning a transition and reward model. 
+Unlike model-based reinforcement learning~\cite{kaelbling1996reinforcement}, where an accurate model of transition model $T$ and reward function $R$ must be learned for policy optimization, we only need to optimize the models to the extent that we can confidently make decisions about $\tilde M$'s label. 
+
+
+As explained before, we only have access to either $(T, R)$ or $(\tilde T, \tilde R)$, but not both. We can learn a predictive model $R_\theta(s, a)$ and $T_\theta(s, a)$ for the reference MDP's $(T, R)$. We note that the model does not need to be autoregressive, but we choose to parametrize them as an autoregressive long-short-term memory (LSTM) network~\cite{hochreiter1997long}. We choose $f$ and $g$ to be fully connected neural networks with separate parameters. Since we are predicting Hoare triples, we call this the HoareLSTM model.
+\begin{align}
+    &h_t = \text{LSTM}(s_t, a_t, h_{t-1}) \\
+    &\hat s_{t+1} = f(h_t); \hat r_{t} = g(h_t) \\
+    &\Ls(\theta) = \E_{(s, a) \sim \pi, M} \big[ | \hat r_t - R(s, a) | + \| \hat s_{t+1} - T(s, a) \| \big]
+\end{align}
+If we learn $T_\theta$ and $R_\theta$ to approximate $T$ and $R$ from the reference MDP $M$, we can compute a state-action tuple distance function from $\tilde M$ to $M$, given any new MDP $\tilde M$. We denote this approximate distance function as $\hat d_M$ that takes $\tilde T$ and $\tilde R$ as input:
+\begin{align}
+    &\hat d_M(s, a; \tilde T, \tilde R) = \alpha | \hat r_t - \tilde R(s, a) | + \beta \| \hat s_{t+1} - \tilde T(s, a) \|  \label{eq:approx_dist} \\
+    &\hat D(M, \tilde M) = \E_{(s, a) \sim \pi, \tilde M} \big[ \hat d_M(s, a) \big] \label{eq:hoarelstm_mdp_dist}
+\end{align}
+We use $\hat D(M, \tilde M)$ to compute the difference between the predicted trajectory by approximating $T$ and $R$ from MDP $M$ and observed trajectory by actually sampling from $\tilde T$ and $\tilde R$. At last, we can determine if $\tilde M$ is the same as $M$ by checking if $\hat D(M, \tilde M) \geq \nu$.
+
+
+\subsection{Contrastive HoareLSTM}
+\label{sec:con_hoarelstm}
+\vspace{-2mm} 
+
+
+
+The distance we calculate is highly reliant on how well our model can approximate the system dynamics of state evolution. However, our model has inherent approximation error. We present the idea of a contrastive distance to potentially mitigate this error.
+
+Instead of learning to approximate one reference MDP's $(T, R)$, we can learn to approximate a correct MDP $M^+$ with $(T^+, R^+)$, and a bug MDP $M^-$ with $(T^-, R^-)$. Given a new test MDP's $(\tilde T, \tilde R)$, we can perform a contrastive comparison to determine the distance function $\hat d_{M^+, M^-}$:
+\begin{align}
+\hat d_{M^+, M^-}(s, a; \tilde T, \tilde R) = &\alpha |\tilde R(s, a) - \hat R^{+}_{\theta}(s, a)| - \alpha |\tilde R(s, a) - \hat R^{-}_{\theta}(s, a)| + \\
+& \beta \| \tilde T(s, a) - \hat T^{+}_{\psi}(s, a) \| - \beta \| \tilde T(s, a) - \hat T^{-}_{\psi}(s, a) \|
+\end{align}
+We still use policy $\pi$ to sample $(s, a)$ from the new input MDP $\tilde M$,
+but instead of directly comparing it with one MDP $M$, we are now comparing it with two MDPs $M^+$ and $M^-$, and see which transition and reward model better predicts the behavior of the new input MDP.
+
+The main advantage of using a difference comparison is that we are likely to be more fault tolerant. If we look at how we decide if a MDP has a bug: $\hat D(M, \tilde M) \geq \nu$, the choice of $\nu$ needs to reflect our approximation error when we try to learn $T$ and $R$ so that we are not classifying an correct MDP as a bug MDP if our model is not able to recreate the transition dynamics accurately. If we approximate both $(T, R)$ and $(\tilde T, \tilde R)$ and use the same family of models with similar parameter size, the approximation errors could cancel out in the contrastive setting. The disadvantage is that now we need to train two models, and the distance can be influenced by how well each model is optimized.
+
+
+
+
+
+
+
+
+
+\begin{minipage}{.5\textwidth}
+    \begin{algorithm}[H]
+    \SetKwInOut{Input}{Input}
+    \SetKwInOut{Output}{Output}
+    \SetKwInOut{Require}{Require}
+    \SetKwFunction{CollectTraj}{CollectTrajectory}
+    \SetKwFunction{Adjust}{AdjustDelta}
+    \SetKwFunction{TrainDQN}{TrainDQN}
+    \SetKwFunction{Optimize}{TrainDistFunc}
+
+    \textsc{TrainDifferentialPolicy} $(M, \tilde M, \pi_0, \hat d_\theta)$ \\
+    $\delta = 0.1$ \\
+    \For{n $\leftarrow$ N}{
+        $\train_{\tau}$ = \CollectTraj{$M, \tilde M, \pi_0$} \\
+        $\hat d_\theta$ = \Optimize{$\Ls(\theta), \train_{\tau}$} \\
+        $\delta$ = \Adjust{$M, \tilde M,, \pi_0, \delta, \hat d_\theta$} \\
+        \textbf{Let} $r^\star = \mathbbm{1}(\hat d_\theta(s, a) > \delta)$\\
+        $\pi_n$ = \TrainDQN{$\pi_0, \tilde M, r^\star$} \\
+    }
+    \textbf{return} $\pi_N, \hat d_\theta, \delta$
+    \caption{Collaborative Reinforcement Learning}
+\end{algorithm}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}{.45\textwidth}
+       \centering
+      \includegraphics[width=0.7\linewidth]{images/grading.pdf}
+      \captionof{figure}{Grading interactive coding assignments \EDIT{as pairwise distance comparisons between few-shot reference MDPs.} }
+      \label{fig:grading}
+\end{minipage}
+
+\vspace{-2mm} 
+\section{Collaborative Training}
+\vspace{-2mm} 
+
+
+
+\EDIT{With a parametrized approximate distance function $d(s, a)$ and an agent $\pi$ that learns to maximize this distance function as reward, the solution seems complete. However, neither the distance function nor the agent can work well in the beginning. Agent acts randomly on the states, and the distance function can't capture any difference between states. This is the \textit{cold-start} problem: we need to simultaneously learn to play the game and find bugs.}
+We \EDIT{present some standard} agents and \EDIT{leave} more detailed investigations to future work.
+
+
+
+
+
+
+
+
+
+\vspace{-2mm} 
+\subsection{Initial Agent: \EDIT{Random or Play-to-Win}}
+\label{sec:ct-agent}
+\vspace{-2mm} 
+\EDIT{One solution is to start with an agent that acts randomly. This strategy is particularly useful if the state space can be easily explored. By sampling random trajectories, we might be able to quickly train a good distance function. The drawback is the inefficiency and the fact that a random agent will struggle with games that have hard-to-reach states.} %
+
+\EDIT{Another solution is to train a policy to maximize the original reward (i.e., play to win)}. If the reference MDP has a clearly defined reward function that gives reward, we can train a policy $\pi$ that simply learns to maximize the episodic total reward. This is a very useful pre-training to hot-start the policy, especially \EDIT{important} in games with long horizon in which it is easy to fail. 
+
+The problem with this approach is that the policy is biased toward finishing the original objective in the coding game. \EDIT{If the bug states can only be reached by losing the game,} it will not lead to any bug discovery. Another problem is that some coding games do not have clearly defined reward. \EDIT{In that situation, we can use curiosity based objective~\citep{pathak2017curiosity}.} But as we will show in the experiment section, play-to-win policy is often good enough at sampling sufficient differential trajectories to train a good distance function.
+
+\vspace{-2mm} 
+\subsection{Improved Agent Using Iterative Training}
+\label{sec:ct-alg}
+\vspace{-2mm} 
+\EDIT{With} the initial agent, we can start to collect trajectories that we can use to train the underlying parameters of our distance function. 
+\EDIT{If our parametrized distance function is a discriminative model (i.e., noisy supervised learning), the optimality of the agent will have an impact on the quality of state level pseudo labeling. We can see in Section~\ref{sec:bug-identification} and Section~\ref{sec:iterative-training}, noisy supervised learning can do quite well as long as the agent can reliably reach the bug states. If our distance function is a generative model that estimates the joint distribution of the observed data, how the agent collects trajectories does not affect the learning of the model. However, we still need to set a threshold $\delta$ to determine}
+if a $(s, a)$ is a bug-inducing state or not, \EDIT{as indicated in Equation~\ref{eq:policy_search}.}
+
+Empirically, for our environments, \EDIT{we find that} we do not need to more than 1 iteration of collaborative training. Therefore, we are able to adjust $\delta$ at the end of each iteration manually by looking at the distance-to-self $\hat D(M, M)$ -- if we take $(s, a)$ from the reference MDP and use $\hat d$ to calculate the difference to itself, we can choose a $\delta$ so that all $(s, a)$ can be labeled as correct. We leave the exploration of how to automatically adjust $\delta$ to future work and more complicated environments.
+
+
+
+
+
+\section{\EDIT{Experimental Results}}
+\vspace{-2mm} 
+
+\begin{figure}[t!]
+  \centering
+  \includegraphics[width=\linewidth]{images/car_bounce.pdf}
+  \caption{We show the illustration of the car environment and two settings on the left, and bounce environment and its two incorrect implementations on the right. For the car environment, bug states are indicated by the dotted red lines and the error signs inside. Note that the correct car environment only has the car and the gold star, without any dotted line or error sign. }
+  \label{fig:car-bounce}
+\end{figure}
+
+
+
+
+
+\subsection{Car Environment}
+\vspace{-2mm} 
+
+We use a toy example to \EDIT{explore some basic aspects about the play-to-grade challenge}. In this toy example, we continue our intuition that the goal is to reach and \EDIT{identify} the bug-triggering state. \EDIT{We build a 2D environment where the agent needs to drive a car to reach a gold  state, and potential bug states are defined as specific coordinates on this 2D field. All states are easily accessible by the agent. This is the most generalized and simplest representation of the play-to-grade challenge. We can use this toy environment to help us understand some fundamental challenges in play-to-grade and understand the properties of collaborative training.}
+
+
+
+In all car environments, the agent can finish the game by reaching the gold star. 
+When a bug-state is reached, the car's physical movement is altered, resulting in back-and-forth movement around the same location -- reflecting the idea that the car is ``stuck''. 
+
+
+
+
+\subsubsection{\EDIT{Bug Classification}}
+\label{sec:bug-identification}
+\vspace{-2mm} 
+
+\EDIT{We define a Car environment setting: Car-Easy,} where almost all agents can easily reach the bug state regardless of whether they adopt the collaborative training objective or not (unless this agent is adversarial). \EDIT{The objective of this setting} is to test how well \bugcls perform  with an optimal agent.
+\EDIT{Although most agents can be optimal, they are not equivalent in the eye of the bug classifiers, because the trajectories these agents collect will differ quite significantly. We test two agents, one that only drives a straight line to the gold star state (the single-direction agent); the other drives randomly (the random agent). The trajectory generated by a random policy is much harder to learn to predict and memorize compared to a single direction policy.}
+
+In Table~\ref{tab:car_easy}, all models including baseline models are able to predict bug states with high precision in a single direction agent setting. However, only our proposed methods: HoareLSTM and Contrastive HoareLSTM are able to learn well by predicting next states in an autoregressive manner. 
+We report the model specification and optimization details in appendix.
+
+
+
+
+
+
+\begin{table}[t]
+\footnotesize
+\centering
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+                      & \multicolumn{3}{c}{Single Direction Agent} & \multicolumn{3}{c}{Random Agent} \\ \midrule
+                      & Accuracy      &  Precision   & Recall    & Accuracy  & Precision   & Recall   \\ \midrule
+\textbf{Baselines} \\
+Noisy Supervised Learning & $91.0 \pm 4.7$          & $90.3 \pm 5.1$          & $98.6 \pm 1.8$       & $60.3 \pm 11.8$      & $48.0 \pm 14.8$       & $84.6 \pm 17.8$    \\
+Gaussian Mixture Model    & $25.3 \pm 12.5$          &     $60.6 \pm 26.0$     & $23.8 \pm 15.7$    & $17.0 \pm 10.6$       & $18.0 \pm 11.0$
+       & $7.3 \pm 6.8$    \\
+Variational Autoencoder   & $83.8 \pm 4.4$ & $84.9 \pm 5.0$     & $95.7 \pm 1.1$      & $69.5 \pm 6.4$      & $51.6 \pm 10.9$       & $86.0 \pm 8.5$     \\ \midrule
+\textbf{Our methods} \\
+HoareLSTM                 & $99.3 \pm 1.9$         & $99.0 \pm 2.7$         & $100.0 \pm 0.0$      & $98.5 \pm 1.1$      & $99.6 \pm 1.0$      & $94.1 \pm 6.0$ \\
+Contrastive HoareLSTM     & $100.0 \pm 0.0$         & $100.0 \pm 0.0$         & $100.0 \pm 0.0$      & $94.5 \pm 1.8$     & $94.4 \pm 2.8$      &  $86.0 \pm 5.2$   \\ \bottomrule
+\end{tabular}
+\vspace{0.3cm}
+\caption{Bug-state level result of the Car-Easy environment. We report the result of both agents over 5 runs. For non-sequential models, we stack the previous 4 states with the current state. We measure the accuracy of correctly classifying bug or non-bug states. Recall and precision are measured only for bug states. We report 95\% confidence interval.}
+\label{tab:car_easy}
+\end{table}
+
+
+
+\subsubsection{\EDIT{Collaborative Training Improvement}}
+\label{sec:iterative-training}
+\vspace{-2mm}
+
+\EDIT{Most of the time, we will not have an optimal agent that can always reach a bug state in every trajectory. Therefore, it is important for us to test bug states that are sparse and slightly harder to reach. We devise the Car-Hard setting where bugs only appear in small rectangular regions of the 2D plane. This creates a situation where the agent only encounters bug states if the agent plays into the bug state.}
+We use this to show that letting the classifier and the agent train iteratively can improve the performance of both classifier and agent. In Table~\ref{tab:crl}, we show that by applying collaborative training (CT), we allow the agent to become much better at reaching bug states, and in return, allow us to train a much stronger bug classifier even after one iteration. We argue that CT is necessary when bug states are far away from the goal and that is the reason why recall is increased on most models after CT.
+
+
+
+
+
+
+
+\begin{table}[ht]
+\footnotesize
+\centering
+\begin{tabular}{@{}lccccccccc@{}}
+\toprule
+      & \multicolumn{3}{c}{Random Agent} & \multicolumn{3}{c}{CT - Iteration 1} & \multicolumn{3}{c}{CT - Iteration 2} \\ 
+  & Acc       & Prec      & Rec      & Acc        & Prec       & Rec        & Acc        & Prec       & Rec        \\ \midrule
+  \textbf{Baselines} \\
+Noisy Supervised Learning & 46.8      & 12.6      & 37.2     & 67.4       & 53.6       & 94.0       & 67.7       & 47.7       & 82.6       \\
+Gaussian Mixture Model    & 8.4       & 3.4       & 2.1      & 11.8       & 8.3        & 2.9        & 12.3       & 0.0        & 0.0        \\
+Variational Autoencoder   & 63.8      & 32.0      & 96.4     & 66.5       & 53.0       & 95.6       & 77.8       & 74.8       & 96.7       \\ \midrule
+ \textbf{Our methods} \\ 
+HoareLSTM                 & 99.2      & 76.5      & 80.0     & 100.0      & 100.0      & 100.0      & 99.3       & 99.0       & 100.0      \\
+Contrastive HoareLSTM     & 98.4      & 93.9      & 87.1     & 97.2       & 99.7       & 94.9       & 97.9       & 99.9       & 96.6       \\ \bottomrule
+\end{tabular}
+\vspace{0.3cm}
+\caption{Bug-state level result of the Car-Hard environment. We show how collaborative iterative training can help classifiers get higher performance. We also average over 5 runs. We measure the accuracy of correctly classifying bug or non-bug states. Recall and precision are measured only for bug states.} 
+\label{tab:crl}
+\end{table}
+
+
+
+
+
+\subsection{Bounce}
+\label{sec:bounce-exp}
+\vspace{-2mm} 
+
+
+
+\paragraph{Data source}
+\textit{Code.org} is an online computer science education platform that teaches \EDIT{K-12 students} beginner programming \EDIT{using} a drag-and-drop interface.
+Our dataset is compiled \EDIT{of} 453,211 students \EDIT{who wrote a solution to the Bounce assignment.} In total, there are 711,274 submissions, where 73,611 unique programs were submitted. Since the data are student programs, there is no personally identifiable information in our dataset. \EDIT{All programs have been manually labeled with the set of bugs they contain.} \EDIT{We provide a data risk statement in Section~\ref{sec:data-security}.} 
+
+\paragraph{Assignment detail} On Code.org students use a drag-and-drop style code editor to program the game of \EDIT{Bounce, a single player version of Pong where a player tries to bounce a ball into a goal using a paddle.}  
+\EDIT{Students program if/then relationships such as ``when run'', ``launch ball". The ``launch ball" command shoots a ball in a random direction and the randomization is not editable by the agent.} %
+There is no limit on how many commands can be used, allowing freedom to, for example, add five ``Launch new ball'' under one condition.  Two example bugs are visualized in Figure~\ref{fig:car-bounce}. \PIECH{Bounce was intentionally chosen as it was difficult for an agent to autonomously grade based on playing, but easy for human annotators to provide gold-standard bug-labels based on looking at the source code.}
+
+
+\paragraph{Evaluation}
+In an unbounded solution space, the distribution of student submissions incur a heavy tail, as observed by \cite{wu2019zero}. We show that the distribution of submissions in dataset conforms to a Zipf distribution Figure~\ref{fig:log-log-plot}. This suggests that we can partition this dataset into two sections.
+\textbf{Body}: we count any unique program submitted by more than 10 students as the ``body'' of the distribution. It accounts for 85.5\% of the total submissions (607,891). This set contains 419 unique correct programs and 2,613 unique incorrect programs. %
+\textbf{Tail}: This set represents any programs that are submitted less than 10 times. This set contains 66,580 unique incorrect and 3,999 unique correct solutions.
+For both Body and Tail distribution, we sample 250 correct and 250 incorrect programs uniformly from each set for evaluation.
+
+
+\paragraph{Analysis} We evaluate our algorithm's ability to find bugs in student Bounce programs. Unlike the Car environment, Bounce has most bug states close to the goal state; for example, if the wall or paddle does not bounce the ball, a game cannot be complete. Therefore, we focus on evaluating our bug prediction.
+We \EDIT{train our prediction on} 10 incorrect programs and 1 correct program. 
+We report the result of Contrastive HoareLSTM trained with trajectories sampled by a pre-trained play-to-win agent Bounce. The final grading label is determined by a majority vote with 10 contrastive distance functions. \EDIT{Table~\ref{tab:bounce-result} shows that we are able to achieve high accuracy (93.4-94.0\%) relative to the code-as-text baseline on the binary classification of student assignment.}
+This shows the potential of play-to-grade algorithms in assisting in real-world classrooms. 
+
+
+
+
+
+
+
+
+
+\begin{table}[]
+\footnotesize
+\centering 
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+                                  &      & \multicolumn{2}{c}{Correct Program} & \multicolumn{2}{c}{Broken Program} \\ 
+                                  & Accuracy & Precision              & Recall             & Precision             & Recall             \\ \midrule
+\multicolumn{6}{l}{\textbf{Body Student Programs (607K submissions, 3032 unique)}}        \\ \midrule
+Majority Class & 50.0 & --- & --- & --- & ---  \\
+Code-as-text & 74.2 & 84.6 & 59.2 & 68.6 & 89.2 \\
+Contrastive HoareLSTM + PTW       &  93.4    &        88.6          &     99.6          &       99.5           &    87.2             \\ 
+\midrule 
+\multicolumn{6}{l}{\textbf{Tail Student Programs (103K submissions, 70579 unique)}}        \\ \midrule
+Majority Class & 50.0 & --- & --- & --- & ---  \\
+Code-as-text & 68.4 & 85.9 & 44.0 & 62.4 & 92.8\\
+Contrastive HoareLSTM + PTW       &   94.0   &         91.0         &     97.6            &       97.4           &    90.4             \\
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+\caption{We report the pre-trained ``play-to-win'' (PTW) agent's performance \EDIT{when predicting if a program has a bug} with different methods of bug identification. For both body and tail distribution, we sample 250 correct and 250 broken programs for a balanced evaluation.}
+\label{tab:bounce-result}
+\end{table}
+
+
+
+
+
+
+
+\section{Discussion}
+\vspace{-2mm}
+
+
+
+
+
+\EDIT{\paragraph{Providing helpful feedback}  Our current formulation of ``identifying a bug state'' holds tremendous educational utility. For beginner programmers, it is important for them to see where the program went wrong and try to develop a solution by themselves. By identifying a bug state, we can record a 2-3 seconds short video around the bug state and display to students where their program made a mistake. We plan to collaborate with Code.org to deploy our trained algorithm in a real production environment, but this live experiment is beyond the scope of our technical paper.}
+
+\paragraph{What if game internal states can't be \EDIT{retrieved}?} There are many situations where the internal object representations (such as velocity, position) can't be accessed easily from outside; in this case, often all the information we have would be the image snapshots of the game state. It is true that the iterative learning paradigm we proposed would be more compute intensive, but the model components we explored in this paper are capable of learning and operating on pixels~\cite{van2016pixel}. 
+
+\paragraph{Does this work for non-game programming assignments?} Many \EDIT{interactive} student assignments might not be a ``game'' and the reward might not be clearly defined. However, since our algorithm does not rely on the internal reward of the game -- we only rely on the classifier to discover  differential trajectories between correct and incorrect programs, our solution should generalize to other types of programming assignments that require interactive user inputs \EDIT{such as web apps}.
+
+\paragraph{Creativity as a distance} Often times, students create solutions that are creative. Understanding and rewarding creativity is the major challenge in AI for education. Though we didn’t use the Bounce dataset to focus on the problem of understanding creativity, our work opens up an interesting angle to address this very hard challenge. In this work we identified several unique approaches that we believe will be useful in recognizing creativity. The idea of play-to-grade could help to identify the difference between a truly broken solution and one which is playable, but different from the reference solution. Or perhaps we could think of creativity as being related to the delta (distance to the correct solution). We imagine that this line of research will be very exciting future work for both the fields of education and reinforcement learning.
+
+
+
+\EDIT{\paragraph{Future work} We see several promising directions to extend this work. First, given that Bounce dataset includes multi-class bug labels, turning the binary classification into a multi-class multi-label classification would bring some new exciting challenges to our framework. Second, as shown in Table~\ref{tab:crl}, iterative training is not always monotonically improving the performance of the algorithm. Exploring the properties of iterative training is left for future work.}
+
+\section{Conclusion}
+Providing a generalizable algorithm that can play interactive student programs in order to give feedback is an important problem for education and an exciting intellectual challenge for the reinforcement learning community. In this work, we introduce the challenge and a dataset, set up the MDP distance framework, provide algorithms that achieve high accuracy, and demonstrate this is a promising direction of applying machine learning to assist education.
+
+\section*{Acknowledgement} 
+This work was supported in part by a Stanford Hoffman-Yee Human Centered AI grant. We would like to thank code.org, and Baker Franke, for generously providing the research community with data. We additionally thank Lisa Yan, Tong Mu for feedback on this project.
+
+
+
+
+
+
+\bibliography{neurips}
+\bibliographystyle{unsrt}
+
+
+
+\begin{enumerate}
+
+\item For all authors...
+\begin{enumerate}
+  \item Do the main claims made in the abstract and introduction accurately reflect the paper's contributions and scope?
+    \answerYes{} %
+  \item Did you describe the limitations of your work?
+    \answerYes{} in Discussion. %
+  \item Did you discuss any potential negative societal impacts of your work?
+     \answerYes{We discussed this in Section 7. In short, we intend our algorithm to provide formative feedback, not used for standardized testing assessment. The societal benefit of developing this technology far outweighs the harm at this point.}
+  \item Have you read the ethics review guidelines and ensured that your paper conforms to them?
+    \answerYes{}. %
+\end{enumerate}
+
+\item If you are including theoretical results...
+\begin{enumerate}
+  \item Did you state the full set of assumptions of all theoretical results?
+    \answerNA{} %
+	\item Did you include complete proofs of all theoretical results?
+    \answerNA{} %
+\end{enumerate}
+
+\item If you ran experiments...
+\begin{enumerate}
+  \item Did you include the code, data, and instructions needed to reproduce the main experimental results (either in the supplemental material or as a URL)?
+    \answerYes{In supplementary material.}
+  \item Did you specify all the training details (e.g., data splits, hyperparameters, how they were chosen)?
+    \answerYes{In supplementary material.}
+	\item Did you report error bars (e.g., with respect to the random seed after running experiments multiple times)?
+    \answerYes{We reported error bars in main paper and/or in supplementary materials.}
+	\item Did you include the total amount of compute and the type of resources used (e.g., type of GPUs, internal cluster, or cloud provider)?
+    \answerYes{Experiments are run on one Nvidia RTX 3070 GPU. The training takes less than 30 minutes and evaluation takes less than 5 hours for our sampled set of programs.} %
+\end{enumerate}
+
+\item If you are using existing assets (e.g., code, data, models) or curating/releasing new assets...
+\begin{enumerate}
+  \item If your work uses existing assets, did you cite the creators?
+    \answerNA{} %
+  \item Did you mention the license of the assets?
+    \answerNo{The data is currently proprietary, though we do have a plan to open-source it.} %
+  \item Did you include any new assets either in the supplemental material or as a URL?
+    \answerNA{} %
+  \item Did you discuss whether and how consent was obtained from people whose data you're using/curating?
+     \answerYes{See Section 6.3 Data source.} %
+  \item Did you discuss whether the data you are using/curating contains personally identifiable information or offensive content?
+    \answerYes{See Section 6.3 Data source.}
+\end{enumerate}
+
+\item If you used crowdsourcing or conducted research with human subjects...
+\begin{enumerate}
+  \item Did you include the full text of instructions given to participants and screenshots, if applicable?
+    \answerNA{} %
+  \item Did you describe any potential participant risks, with links to Institutional Review Board (IRB) approvals, if applicable?
+    \answerNA{} %
+  \item Did you include the estimated hourly wage paid to participants and the total amount spent on participant compensation?
+    \answerNA{} %
+\end{enumerate}
+
+\end{enumerate}
+
+\clearpage
+
+\counterwithin{figure}{section}
+\appendix
+
+\section{Appendix}
+
+
+\subsection{HoareLSTM and Contrastive HoareLSTM Training Data}
+
+Two algorithms presented in Section~\ref{sec:hoarelstm} and Section~\ref{sec:con_hoarelstm} require different trianing data. HoareLSTM only requires one reference program that is correct. However, Contrastive HoareLSTM requires the teacher to provide a few (in the case of Car, one; in the case of Bounce, ten) incorrect programs. We believe this does not place a heavy burden on the teachers.
+
+\subsection{Car Environment}
+
+Let the center of the environment be $(0, 0)$, the opposite boundaries are -10 and 10. The car's initial x-y coordinates are uniformly sampled from $[-2, 2]$. There are four discrete actions for the agent to take, each action applies an acceleration or deceleration of 0.2 to the velocity along the corresponding direction, with max speed of any direction capped at 1. This allows the car to have more complex trajectories than zig-zag lines. 
+
+When a bug-state is reached, the car's physical movement is altered. The velocity is first clipped to be in $[-0.5, 0.5]$. At each step, instead of responding to an action from the agent, the car simply flips the sign of the previously clipped velocity, resulting in back-and-forth movement around the same location -- reflecting the idea that the car is ``stuck''.
+
+\subsection{Car-Easy Experiment Setup}
+\label{sec:app-car-easy-exp-setup}
+
+For HoareLSTM and contrastive HoareLSTM, we use a fully connected network (FCN) to project input into 128-dim latent representations, and then use a LSTM with hidden state dimension of 128, and at last, use a FCN to project it down to output. The nonlinearity is GeLU (Gaussian Error Linear Units function). 
+
+\subsection{Car-Hard Agent Trajectory}
+
+We can directly examine how collaborative training taught the agent by looking at its trajectory. At first, the agent drives the car randomly. But after 1 round of collaborative training, the agent becomes sharply focused and only visits the possible buggy areas.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\linewidth]{images/ct_trajectory.pdf}
+    \caption{We show in the Car-Hard environment, a random agent (in blue) can use bug classifier's decision as reward to quickly learn to drive straight to the bug states (in red).}
+    \label{fig:ct_trajectory}
+\end{figure}
+
+
+
+
+
+\subsection{Bounce Data Risk Statement}
+\label{sec:data-security}
+
+As shown in Figure~\ref{fig:code-area}, because Bounce is only a drag-and-drop interface, there is no place to add custom comments or include any other custom text in the homework submission. The dataset we release does not provide timestamp, identifier information, and any metadata linked to the submission. The dataset only contains the programs themselves, which are represented in JSON. We deem the risk of exposing personal identifiable information through our dataset to be negligible.
+
+\subsection{Bounce Task Details}
+
+\paragraph{Gold annotations} 
+We generate the ground-truth gold annotations by defining legal or illegal commands under each condition. For example, having more than one ``launch new ball'' under ``when run'' is incorrect. Placing ``score opponent point'' under ``when run'' is also incorrect. Abiding by this logic, we put down a list of legal and illegal commands for each condition.  We note that, we intentionally chose the bounce program as it was amenable to generating gold annotations due to the API that code.org exposed to students. While our methods apply broadly, this gold annotation system will not scale to other assignments. The full annotation schema is provided as code in the code base.
+
+\paragraph{Interface}
+
+We show an interface of how students write the program in Figure~\ref{fig:code-area}. We also show a log-log distribution plot to show that the distribution of unique student programs conforms to a Zipfian distribution. Even though students can create visually stimulating programs by setting various themes (illustrated in Figure~\ref{fig:theme-invars}), we side-step this issue by focusing on the velocity and positions of objects instead. Looking into thematic invariance could be an interesting future direction.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.85\linewidth]{images/thematic-invariance-new.pdf}
+  \caption{Bounce can have different ``themes'' for the background, paddle, and ball. There are two themes to choose from: ``hardcourt'' and ``retro''. We show the complete eight different combinations of themes and what the game would look like under these settings.}
+  \label{fig:theme-invars}
+\end{figure}
+
+\begin{figure}[ht]
+     \centering
+     \begin{subfigure}[b]{0.65\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/Code_org_snippets.pdf}
+         \caption{This is the simplest combination that makes up a correct program.}
+         \label{fig:code-area}
+     \end{subfigure}
+     \quad
+     \begin{subfigure}[b]{0.3\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/log_log_plot.pdf}
+         \caption{The probability distribution conform  to a Zipf distribution.}
+        \label{fig:log-log-plot}
+     \end{subfigure}
+    \caption{This is the drag-and-drop style code editor that students use to create the game Bounce. Conditions such as ``when run'' or ``when left arrow'' are fixed in space. Students place commands such as ``Score point'', under each condition. The submission frequency of each unique program conforms to a Zipfian distribution on a log-log plot.}
+    \label{fig:three graphs}
+\end{figure}
+
+\paragraph{Sample student programs}
+We show some sample student programs in Figure~\ref{fig:program-invar} to illustrate how complicated the programs can be -- even with a limited set of blocks and conditions. Note that even though Figure~\ref{fig:program-invar}(a) triggers a visual change when the ball hits the wall, in our current formulation, it does not affect the position and velocity of objects in the game.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{images/program_invars.pdf}
+  \caption{We demonstrate three examples of how Bounce can be programmed freely by allowing infinite repetition of commands and commands to be placed under any condition. Only (a) is considered correct since theme change does not affect game play. Both (b) and (c) are considered incorrect. (c) represents a reward design error (give points at incorrect condition). This demonstrates the difficulty of generalization in our setting.}
+  \label{fig:program-invar}
+\end{figure}
+
+ 
+\subsection{Bounce Additional Experiments}
+
+\subsubsection{Sampled Evaluation}
+The experiment result reported in Section~\ref{sec:bounce-exp} is from a balanced sampled dataset where we have equal number of correct and broken programs.The underlying submissions are actually imbalanced.  We have far more incorrect unique implementations than correct unique implementations. The majority guess (labeling all input programs as broken) would give 86.1\% accuracy for body distribution and 94.3\% accuracy for the tail distribution. The tail distribution has 66,580 incorrect and 3,999 correct solutions. We show the result in Table~\ref{tab:sampled}.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Contrastive HoareLSTM & Majority Class & Accuracy & Precision & Recall & F1   \\ \midrule
+Body-Balanced         & 50.0           & 93.4     & 99.5      & 87.2   & 93.0 \\
+Body-Sampled          & 84.6           & 88.8     & 99.7      & 87.0   & 92.9 \\
+Tail-Balanced         & 50.0           & 94.0     & 97.4      & 90.4   & 93.8 \\
+Tail-Sampled          & 92.8           & 94.4     & 100       & 94.0   & 94.4 \\ \bottomrule
+\end{tabular}
+\vspace{0.3cm}
+\caption{We show the precision/recall/F1 for identifying the bug program.}
+\label{tab:sampled}
+\end{table}
+
+\subsubsection{Ablation on Number of Bug Examples}
+
+In our Contrastive HoareLSTM formulation, we assume that teachers will provide a few bug examples. Here we show an ablation study on if we vary the number of provided bug examples, how would it affect our distance-based classifier's performance.
+We would like to point out that not all broken examples are created equal -- some are probably more crucial than others (this could be a great future direction). We simply used our best guess again to choose a smaller set of representatives of broken programs. We did not re-pick the set in any way to optimize their performance. We show the result in Table~\ref{tab:num}.
+
+\begin{table}[]
+\centering
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Contrastive HoareLSTM           & Accuracy & Precision & Recall & F1   \\ \midrule
+Body-Balanced (3 bug examples)  & 50.0     & 50.0      & 100.0  & 66.7 \\
+Body-Balanced (5 bug examples)  & 89.4     & 99.5      & 79.2   & 88.2 \\
+Body-Balanced (7 bug examples)  & 92.4     & 99.5      & 85.2   & 91.8 \\
+Body-Balanced (10 bug examples) & 93.4     & 99.5      & 87.2   & 93.0 \\ \midrule
+Body-Sampled (3 bug examples)   & 84.6     & 84.6      & 100.0  & 91.7 \\
+Body-Sampled (5 bug examples)   & 84.6     & 84.6      & 100.0  & 91.7 \\
+Body-Sampled (7 bug examples)   & 86.0     & 99.7      & 83.7   & 91.0 \\
+Body-Sampled (10 bug examples)  & 88.8     & 99.7      & 87.0   & 92.9 \\ \midrule
+Tail-Balanced (3 bug examples)  & 50.0     & 50.0      & 100.0  & 66.7 \\
+Tail-Balanced (5 bug examples)  & 92.8     & 97.4      & 88.0   & 92.4 \\
+Tail-Balanced (7 bug examples)  & 93.2     & 97.4      & 88.9   & 92.9 \\
+Tail-Balanced (10 bug examples) & 94.0     & 97.4      & 90.4   & 93.8 \\ \midrule
+Tail-Sampled (3 examples)       & 92.8     & 92.8      & 100.0  & 96.3 \\
+Tail-Sampled (5 examples)       & 92.8     & 92.8      & 100.0  & 96.3 \\
+Tail-Sampled (7 examples)       & 92.8     & 92.8      & 100.0  & 96.3 \\
+Tail-Sampled (10 examples)      & 94.4     & 100       & 94.0   & 94.4 \\ \bottomrule
+\end{tabular}
+\vspace{0.3cm}
+\caption{We show the precision/recall/F1 for identifying the bug program.}
+\label{tab:num}
+\end{table}
+
+
+\end{document}

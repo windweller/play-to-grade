@@ -1,0 +1,242 @@
+\begin{thebibliography}{10}
+
+\bibitem{bowen2012cost}
+William~G Bowen.
+\newblock The ‘cost disease’in higher education: is technology the answer?
+\newblock {\em The Tanner Lectures Stanford University}, 2012.
+
+\bibitem{code.org}
+Code.org about us page: https://code.org/about, 2021.
+
+\bibitem{codehints}
+A crowd-sourcing hints project for code.org: https://code.org/hints, 2017.
+
+\bibitem{piech2015deep}
+Chris Piech, Jonathan Bassen, Jonathan Huang, Surya Ganguli, Mehran Sahami,
+  Leonidas~J Guibas, and Jascha Sohl-Dickstein.
+\newblock Deep knowledge tracing.
+\newblock In {\em Advances in neural information processing systems}, pages
+  505--513, 2015.
+
+\bibitem{basu2013powergrading}
+Sumit Basu, Chuck Jacobs, and Lucy Vanderwende.
+\newblock Powergrading: a clustering approach to amplify human effort for short
+  answer grading.
+\newblock {\em Transactions of the Association for Computational Linguistics},
+  1:391--402, 2013.
+
+\bibitem{yan_pyramid}
+Lisa Yan, Nick McKeown, and Chris Piech.
+\newblock The pyramidsnapshot challenge: Understanding student process from
+  visual output of programs.
+\newblock In {\em Proceedings of the 50th ACM Technical Symposium on Computer
+  Science Education}, SIGCSE '19, pages 119--125, New York, NY, USA, 2019. ACM.
+
+\bibitem{wang2017learning}
+Lisa Wang, Angela Sy, Larry Liu, and Chris Piech.
+\newblock Learning to represent student knowledge on programming exercises
+  using deep learning.
+\newblock In {\em EDM}, 2017.
+
+\bibitem{liu2019automated}
+Jiawei Liu, Yang Xu, and Lingzhe Zhao.
+\newblock Automated essay scoring based on two-stage learning.
+\newblock {\em arXiv preprint arXiv:1901.07744}, 2019.
+
+\bibitem{hu2019reliable}
+Qian Hu and Huzefa Rangwala.
+\newblock Reliable deep grade prediction with uncertainty estimation.
+\newblock {\em arXiv preprint arXiv:1902.10213}, 2019.
+
+\bibitem{wu2019zero}
+Mike Wu, Milan Mosse, Noah Goodman, and Chris Piech.
+\newblock Zero shot learning for code education: Rubric sampling with deep
+  learning inference.
+\newblock In {\em Proceedings of the AAAI Conference on Artificial
+  Intelligence}, volume~33, pages 782--790, 2019.
+
+\bibitem{malik2021generative}
+Ali Malik, Mike Wu, Vrinda Vasavada, Jinpeng Song, Madison Coots, John
+  Mitchell, Noah Goodman, and Chris Piech.
+\newblock Generative grading: Near human-level accuracy for automated feedback
+  on richly structured problems.
+\newblock {\em Educational Data Mining}, 2021.
+
+\bibitem{o2014hint}
+Eleanor O'Rourke, Christy Ballweber, and Zoran Popovi{\'\i}.
+\newblock Hint systems may negatively impact performance in educational games.
+\newblock In {\em Proceedings of the first ACM conference on Learning@ scale
+  conference}, pages 51--60, 2014.
+
+\bibitem{price2017position}
+Thomas~W Price and Tiffany Barnes.
+\newblock Position paper: Block-based programming should offer intelligent
+  support for learners.
+\newblock In {\em 2017 IEEE Blocks and Beyond Workshop (B\&B)}, pages 65--68.
+  IEEE, 2017.
+
+\bibitem{piech2015learning}
+Chris Piech, Jonathan Huang, Andy Nguyen, Mike Phulsuksombati, Mehran Sahami,
+  and Leonidas Guibas.
+\newblock Learning program embeddings to propagate feedback on student code.
+\newblock In {\em International conference on machine Learning}, pages
+  1093--1102. PMLR, 2015.
+
+\bibitem{bhatia2016automated}
+Sahil Bhatia and Rishabh Singh.
+\newblock Automated correction for syntax errors in programming assignments
+  using recurrent neural networks.
+\newblock {\em arXiv preprint arXiv:1603.06129}, 2016.
+
+\bibitem{rivers2017data}
+Kelly Rivers and Kenneth~R Koedinger.
+\newblock Data-driven hint generation in vast solution spaces: a self-improving
+  python programming tutor.
+\newblock {\em International Journal of Artificial Intelligence in Education},
+  27(1):37--64, 2017.
+
+\bibitem{paassen2017continuous}
+Benjamin Paa{\ss}en, Barbara Hammer, Thomas~William Price, Tiffany Barnes,
+  Sebastian Gross, and Niels Pinkwart.
+\newblock The continuous hint factory-providing hints in vast and sparsely
+  populated edit distance spaces.
+\newblock {\em arXiv preprint arXiv:1708.06564}, 2017.
+
+\bibitem{hu2011automating}
+Cuixiong Hu and Iulian Neamtiu.
+\newblock Automating gui testing for android applications.
+\newblock In {\em Proceedings of the 6th International Workshop on Automation
+  of Software Test}, pages 77--83, 2011.
+
+\bibitem{aschermann2020ijon}
+Cornelius Aschermann, Sergej Schumilo, Ali Abbasi, and Thorsten Holz.
+\newblock Ijon: Exploring deep state spaces via fuzzing.
+\newblock In {\em 2020 IEEE Symposium on Security and Privacy (SP)}, pages
+  1597--1612. IEEE, 2020.
+
+\bibitem{mohamed2015variational}
+Shakir Mohamed and Danilo~Jimenez Rezende.
+\newblock Variational information maximisation for intrinsically motivated
+  reinforcement learning.
+\newblock {\em arXiv preprint arXiv:1509.08731}, 2015.
+
+\bibitem{pathak2017curiosity}
+Deepak Pathak, Pulkit Agrawal, Alexei~A Efros, and Trevor Darrell.
+\newblock Curiosity-driven exploration by self-supervised prediction.
+\newblock In {\em International conference on machine learning}, pages
+  2778--2787. PMLR, 2017.
+
+\bibitem{eysenbach2018diversity}
+Benjamin Eysenbach, Abhishek Gupta, Julian Ibarz, and Sergey Levine.
+\newblock Diversity is all you need: Learning skills without a reward function.
+\newblock {\em arXiv preprint arXiv:1802.06070}, 2018.
+
+\bibitem{ecoffet2019go}
+Adrien Ecoffet, Joost Huizinga, Joel Lehman, Kenneth~O Stanley, and Jeff Clune.
+\newblock Go-explore: a new approach for hard-exploration problems.
+\newblock {\em arXiv preprint arXiv:1901.10995}, 2019.
+
+\bibitem{zheng2019wuji}
+Yan Zheng, Xiaofei Xie, Ting Su, Lei Ma, Jianye Hao, Zhaopeng Meng, Yang Liu,
+  Ruimin Shen, Yingfeng Chen, and Changjie Fan.
+\newblock Wuji: Automatic online combat game testing using evolutionary deep
+  reinforcement learning.
+\newblock In {\em 2019 34th IEEE/ACM International Conference on Automated
+  Software Engineering (ASE)}, pages 772--784. IEEE, 2019.
+
+\bibitem{zhan2018taking}
+Zeping Zhan, Batu Aytemiz, and Adam~M Smith.
+\newblock Taking the scenic route: Automatic exploration for videogames.
+\newblock {\em arXiv preprint arXiv:1812.03125}, 2018.
+
+\bibitem{gordillo2021improving}
+Camilo Gordillo, Joakim Bergdahl, Konrad Tollmar, and Linus Gissl{\'e}n.
+\newblock Improving playtesting coverage via curiosity driven reinforcement
+  learning agents.
+\newblock {\em arXiv preprint arXiv:2103.13798}, 2021.
+
+\bibitem{saunders2017trial}
+William Saunders, Girish Sastry, Andreas Stuhlmueller, and Owain Evans.
+\newblock Trial without error: Towards safe reinforcement learning via human
+  intervention.
+\newblock {\em arXiv preprint arXiv:1707.05173}, 2017.
+
+\bibitem{uesato2018rigorous}
+Jonathan Uesato, Ananya Kumar, Csaba Szepesvari, Tom Erez, Avraham Ruderman,
+  Keith Anderson, Nicolas Heess, Pushmeet Kohli, et~al.
+\newblock Rigorous agent evaluation: An adversarial approach to uncover
+  catastrophic failures.
+\newblock {\em arXiv preprint arXiv:1812.01647}, 2018.
+
+\bibitem{prakash2019improving}
+Bharat Prakash, Mohit Khatwani, Nicholas Waytowich, and Tinoosh Mohsenin.
+\newblock Improving safety in reinforcement learning using model-based
+  architectures and human intervention.
+\newblock In {\em The Thirty-Second International Flairs Conference}, 2019.
+
+\bibitem{reddy2020learning}
+Siddharth Reddy, Anca Dragan, Sergey Levine, Shane Legg, and Jan Leike.
+\newblock Learning human objectives by evaluating hypothetical behavior.
+\newblock In {\em International Conference on Machine Learning}, pages
+  8020--8029. PMLR, 2020.
+
+\bibitem{ravindran2001symmetries}
+Balaraman Ravindran and Andrew~G Barto.
+\newblock Symmetries and model minimization in markov decision processes, 2001.
+
+\bibitem{givan2003equivalence}
+Robert Givan, Thomas Dean, and Matthew Greig.
+\newblock Equivalence notions and model minimization in markov decision
+  processes.
+\newblock {\em Artificial Intelligence}, 147(1-2):163--223, 2003.
+
+\bibitem{ferns2004metrics}
+Norm Ferns, Prakash Panangaden, and Doina Precup.
+\newblock Metrics for finite markov decision processes.
+\newblock In {\em UAI}, volume~4, pages 162--169, 2004.
+
+\bibitem{li2006towards}
+Lihong Li, Thomas~J Walsh, and Michael~L Littman.
+\newblock Towards a unified theory of state abstraction for mdps.
+\newblock {\em ISAIM}, 4:5, 2006.
+
+\bibitem{van2020plannable}
+Elise van~der Pol, Thomas Kipf, Frans~A Oliehoek, and Max Welling.
+\newblock Plannable approximations to mdp homomorphisms: Equivariance under
+  actions.
+\newblock {\em arXiv preprint arXiv:2002.11963}, 2020.
+
+\bibitem{kingma2013auto}
+Diederik~P Kingma and Max Welling.
+\newblock Auto-encoding variational bayes.
+\newblock {\em arXiv preprint arXiv:1312.6114}, 2013.
+
+\bibitem{hoare1969axiomatic}
+Charles Antony~Richard Hoare.
+\newblock An axiomatic basis for computer programming.
+\newblock {\em Communications of the ACM}, 12(10):576--580, 1969.
+
+\bibitem{castro2009equivalence}
+Pablo~Samuel Castro, Prakash Panangaden, and Doina Precup.
+\newblock Equivalence relations in fully and partially observable markov
+  decision processes.
+\newblock In {\em Twenty-First International Joint Conference on Artificial
+  Intelligence}, 2009.
+
+\bibitem{kaelbling1996reinforcement}
+Leslie~Pack Kaelbling, Michael~L Littman, and Andrew~W Moore.
+\newblock Reinforcement learning: A survey.
+\newblock {\em Journal of artificial intelligence research}, 4:237--285, 1996.
+
+\bibitem{hochreiter1997long}
+Sepp Hochreiter and J{\"u}rgen Schmidhuber.
+\newblock Long short-term memory.
+\newblock {\em Neural computation}, 9(8):1735--1780, 1997.
+
+\bibitem{van2016pixel}
+Aaron Van~Oord, Nal Kalchbrenner, and Koray Kavukcuoglu.
+\newblock Pixel recurrent neural networks.
+\newblock In {\em International Conference on Machine Learning}, pages
+  1747--1756. PMLR, 2016.
+
+\end{thebibliography}
