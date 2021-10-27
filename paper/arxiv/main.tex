@@ -813,7 +813,7 @@ Empirically, for our environments, \EDIT{we find that} we do not need to more th
 
 
 
-\section{\EDIT{Experimental Results}}
+\section{Experimental Results}
 \vspace{-2mm} 
 
 \begin{figure}[t!]
@@ -840,7 +840,7 @@ When a bug-state is reached, the car's physical movement is altered, resulting i
 
 
 
-\subsubsection{\EDIT{Bug Classification}}
+\subsubsection{Bug Classification}
 \label{sec:bug-identification}
 \vspace{-2mm} 
 
@@ -878,7 +878,7 @@ Contrastive HoareLSTM     & $100.0 \pm 0.0$         & $100.0 \pm 0.0$         & 
 
 
 
-\subsubsection{\EDIT{Collaborative Training Improvement}}
+\subsubsection{Collaborative Training Improvement}
 \label{sec:iterative-training}
 \vspace{-2mm}
 
@@ -1012,68 +1012,6 @@ This work was supported in part by a Stanford Hoffman-Yee Human Centered AI gran
 \bibliography{neurips}
 \bibliographystyle{unsrt}
 
-
-
-\begin{enumerate}
-
-\item For all authors...
-\begin{enumerate}
-  \item Do the main claims made in the abstract and introduction accurately reflect the paper's contributions and scope?
-    \answerYes{} %
-  \item Did you describe the limitations of your work?
-    \answerYes{} in Discussion. %
-  \item Did you discuss any potential negative societal impacts of your work?
-     \answerYes{We discussed this in Section 7. In short, we intend our algorithm to provide formative feedback, not used for standardized testing assessment. The societal benefit of developing this technology far outweighs the harm at this point.}
-  \item Have you read the ethics review guidelines and ensured that your paper conforms to them?
-    \answerYes{}. %
-\end{enumerate}
-
-\item If you are including theoretical results...
-\begin{enumerate}
-  \item Did you state the full set of assumptions of all theoretical results?
-    \answerNA{} %
-	\item Did you include complete proofs of all theoretical results?
-    \answerNA{} %
-\end{enumerate}
-
-\item If you ran experiments...
-\begin{enumerate}
-  \item Did you include the code, data, and instructions needed to reproduce the main experimental results (either in the supplemental material or as a URL)?
-    \answerYes{In supplementary material.}
-  \item Did you specify all the training details (e.g., data splits, hyperparameters, how they were chosen)?
-    \answerYes{In supplementary material.}
-	\item Did you report error bars (e.g., with respect to the random seed after running experiments multiple times)?
-    \answerYes{We reported error bars in main paper and/or in supplementary materials.}
-	\item Did you include the total amount of compute and the type of resources used (e.g., type of GPUs, internal cluster, or cloud provider)?
-    \answerYes{Experiments are run on one Nvidia RTX 3070 GPU. The training takes less than 30 minutes and evaluation takes less than 5 hours for our sampled set of programs.} %
-\end{enumerate}
-
-\item If you are using existing assets (e.g., code, data, models) or curating/releasing new assets...
-\begin{enumerate}
-  \item If your work uses existing assets, did you cite the creators?
-    \answerNA{} %
-  \item Did you mention the license of the assets?
-    \answerNo{The data is currently proprietary, though we do have a plan to open-source it.} %
-  \item Did you include any new assets either in the supplemental material or as a URL?
-    \answerNA{} %
-  \item Did you discuss whether and how consent was obtained from people whose data you're using/curating?
-     \answerYes{See Section 6.3 Data source.} %
-  \item Did you discuss whether the data you are using/curating contains personally identifiable information or offensive content?
-    \answerYes{See Section 6.3 Data source.}
-\end{enumerate}
-
-\item If you used crowdsourcing or conducted research with human subjects...
-\begin{enumerate}
-  \item Did you include the full text of instructions given to participants and screenshots, if applicable?
-    \answerNA{} %
-  \item Did you describe any potential participant risks, with links to Institutional Review Board (IRB) approvals, if applicable?
-    \answerNA{} %
-  \item Did you include the estimated hourly wage paid to participants and the total amount spent on participant compensation?
-    \answerNA{} %
-\end{enumerate}
-
-\end{enumerate}
-
 \clearpage
 
 \counterwithin{figure}{section}
@@ -1092,6 +1030,14 @@ Let the center of the environment be $(0, 0)$, the opposite boundaries are -10 a
 
 When a bug-state is reached, the car's physical movement is altered. The velocity is first clipped to be in $[-0.5, 0.5]$. At each step, instead of responding to an action from the agent, the car simply flips the sign of the previously clipped velocity, resulting in back-and-forth movement around the same location -- reflecting the idea that the car is ``stuck''.
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\linewidth]{images/ct_trajectory.pdf}
+	\caption{We show in the Car-Hard environment, a random agent (in blue) can use bug classifier's decision as reward to quickly learn to drive straight to the bug states (in red).}
+	\label{fig:ct_trajectory}
+\end{figure}
+
+
 \subsection{Car-Easy Experiment Setup}
 \label{sec:app-car-easy-exp-setup}
 
@@ -1101,12 +1047,6 @@ For HoareLSTM and contrastive HoareLSTM, we use a fully connected network (FCN) 
 
 We can directly examine how collaborative training taught the agent by looking at its trajectory. At first, the agent drives the car randomly. But after 1 round of collaborative training, the agent becomes sharply focused and only visits the possible buggy areas.
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=\linewidth]{images/ct_trajectory.pdf}
-    \caption{We show in the Car-Hard environment, a random agent (in blue) can use bug classifier's decision as reward to quickly learn to drive straight to the bug states (in red).}
-    \label{fig:ct_trajectory}
-\end{figure}
 
 
 
