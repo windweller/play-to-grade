@@ -346,9 +346,9 @@ class Ball(object):
 
         return on_screen
 
-    def infer_ball_position(self, paddle: Paddle):
+    def infer_ball_position(self, paddle: Paddle, program: Program):
 
-        if self.ball_already_in_goal:
+        if self.ball_already_in_goal and BOUNCE_BALL not in program['when ball in goal']:
             return BALL_ALREADY_IN_GOAL
 
         canvas = self.canvas
@@ -642,7 +642,7 @@ class Bounce(object):
                 if ball.ball_destroyed:
                     continue
 
-                ball_condition = ball.infer_ball_position(self.paddle)
+                ball_condition = ball.infer_ball_position(self.paddle, self.program)
 
                 if ball_condition == BALL_IN_GOAL:
                     cmds = self.program[BALL_IN_GOAL]
@@ -733,7 +733,7 @@ class Bounce(object):
             if ball.ball_destroyed:
                 continue
 
-            ball_condition = ball.infer_ball_position(self.paddle)
+            ball_condition = ball.infer_ball_position(self.paddle, self.program)
 
             if ball_condition == BALL_IN_GOAL:
                 cmds = self.program[BALL_IN_GOAL]
@@ -871,7 +871,7 @@ class BounceEnv(gym.Env):
 
         info = {'bug_state': False}
         if len(self.bounce.balls) == 1:
-            ball_condition = self.bounce.balls[0].infer_ball_position(self.bounce.paddle)
+            ball_condition = self.bounce.balls[0].infer_ball_position(self.bounce.paddle, self.bounce.program)
             if ball_condition == BALL_IN_GOAL and self.info_bug == BALL_IN_GOAL:
                 info['bug_state'] = True
             elif ball_condition == BALL_MISS_PADDLE and self.info_bug == BALL_MISS_PADDLE:
