@@ -31,10 +31,10 @@ Therefore, we sampled another set of programs (500 in total) for body and for ta
 These data are used to produce Table 4 in the appendix.
 
 ```bash
-body_sampled_broken_250.json
-body_sampled_correct_250.json
-tail_sampled_broken_250.json
-tail_sampled_correct_250.json
+body_sampled_broken_423.json
+body_sampled_correct_77.json
+tail_sampled_broken_464.json
+tail_sampled_correct_36.json
 ```
 
 **3. Full Unique Dataset**
