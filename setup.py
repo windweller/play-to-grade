@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='play-to-grade',
-    description="Environments for doing RL on student programming assignment grading",
+    description="Environments for training agents to interactively evaluate student programming submissions",
     author="windfeller",
     packages=["bounce", "car"],
     install_requires=[
