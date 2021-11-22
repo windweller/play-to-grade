@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='play-to-grade',
     description="Environments for training agents to interactively evaluate student programming submissions",
-    author="windfeller",
+    author="windweller",
     packages=["bounce", "car"],
     install_requires=[
         "torch",
