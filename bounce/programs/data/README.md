@@ -55,3 +55,9 @@ There are 73,611 unique programs in total in this dataset.
 
 Body/tail cutoff point is for the unique program to have more than 10 submissions. 
 
+The error labels (multi-label) are generated with reachability constraint:
+- If there is no ball launched in the game play, and no action player/agent can perform to get any ball to launch, then we
+only tag with one label "whenRun-noBallLaunch".
+- If the player/agent cannot control the paddle, or the paddle goes the wrong direction, we unify them into one label "whenMove-error", and ignore all other labels.
+- If the paddle does not bounce, this means we can't control the ball to reach any other potential bug state, we also tag programs with just 
+one label "whenPaddle-noBounce".
