@@ -2,6 +2,8 @@
 
 <img src="https://github.com/windweller/play-to-grade/blob/main/images/thumbnail.png?raw=true" style='height: 295.6px; width: 175.4px;'>
 
+Paper: [Play to Grade: Testing Coding Games as Classifying Markov Decision Process](https://arxiv.org/abs/2110.14615)
+
 A correct program:
 
 <img src="https://media.giphy.com/media/LhC4oRHFahkxvryfQA/giphy.gif" style='height: 150px; width: 150px;'>
