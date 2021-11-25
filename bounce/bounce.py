@@ -1,6 +1,6 @@
 import math
 
-from bounce.graphics import Canvas
+from graphics import Canvas
 import random
 import time
 
@@ -357,7 +357,8 @@ class Ball(object):
 
         if canvas.get_top_y(self.obj) < total_wall_width and canvas.get_left_x(
                 self.obj) > 100 - 1 and ball_x_right < 300 + 1:
-            self.ball_already_in_goal = True
+            if BOUNCE_BALL not in program['when ball in goal']:
+                self.ball_already_in_goal = True
             return BALL_IN_GOAL
         elif ball_y_top >= canvas.get_canvas_height():
             return BALL_MISS_PADDLE
@@ -921,7 +922,7 @@ if __name__ == '__main__':
     program = Program()
     program.set_correct()
 
-    # program.load("programs/miss_paddle_no_launch_ball.json")
+    # program.load("programs/id33_debug.json")
     # program.load("programs/hit_goal_no_point.json")
     # program.load("programs/empty.json")
     # program.load("programs/multi_ball.json")
