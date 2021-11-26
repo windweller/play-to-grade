@@ -348,7 +348,7 @@ class Ball(object):
 
     def infer_ball_position(self, paddle: Paddle, program: Program):
 
-        if self.ball_already_in_goal and BOUNCE_BALL not in program['when ball in goal']:
+        if self.ball_already_in_goal:
             return BALL_ALREADY_IN_GOAL
 
         canvas = self.canvas
