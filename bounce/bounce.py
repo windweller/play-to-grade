@@ -864,7 +864,7 @@ class BounceEnv(gym.Env):
         done = self.bounce.score_board.game_over()
 
         if self.reward_type == SELF_MINUS_HALF_OPPO:
-            reward = (score_diff - oppo_score_diff) * 20
+            reward = score_diff * 20 - oppo_score_diff * 10
             reward = max(-10, reward)
         else:
             reward = score_diff * 20
