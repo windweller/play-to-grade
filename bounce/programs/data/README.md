@@ -9,7 +9,7 @@ We provide three sets of data:
 
 **1. 500 Body/Tailed Balanced Dataset**
 
-We sampled 250 programs randomly from the body and tail distribution of the student pgorams. This is the set where we use to compute
+We sampled 250 programs randomly from the body and tail distribution of the student programs. This is the set where we use to compute
 result for Table 3.
 
 These two files are called:
