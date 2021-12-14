@@ -169,20 +169,19 @@ class Program(Config):
             for i, cond in enumerate(self.cond_order):
                 for j, cmd in enumerate(self.no_invar_command_order):
                     if cmd in self.config_dict[cond]:
-                        feat[i * len(self.no_invar_command_order) + j] += 1
+                        feat[i * len(self.no_invar_command_order) + j] = self.config_dict[cond].count(cmd)
         elif no_theme_invariance:
             feat = [0] * 7 * (6 + 12)
             for i, cond in enumerate(self.cond_order):
                 for j, cmd in enumerate(self.no_invar_command_order + self.speed_invar_command_order):
                     if cmd in self.config_dict[cond]:
-                        feat[i * len(self.no_invar_command_order) + j] += 1
+                        feat[i * len(self.no_invar_command_order + self.speed_invar_command_order) + j] = self.config_dict[cond].count(cmd)
         else:
-            feat = [0] * 7 * 27
-            feat = [0] * 7 * (6 + 12)
+            feat = [0] * 7 * (6 + 12 + 9)
             for i, cond in enumerate(self.cond_order):
                 for j, cmd in enumerate(self.no_invar_command_order + self.speed_invar_command_order + self.theme_invar_command_order):
                     if cmd in self.config_dict[cond]:
-                        feat[i * len(self.no_invar_command_order) + j] += 1
+                        feat[i * len(self.no_invar_command_order + self.speed_invar_command_order + self.theme_invar_command_order) + j] = self.config_dict[cond].count(cmd)
 
         return feat
 
@@ -920,7 +919,8 @@ class BounceEnv(gym.Env):
 
 if __name__ == '__main__':
     program = Program()
-    program.set_correct()
+    # program.set_correct()
+    program.load("programs/launch_no_ball.json")
 
     # program.load("programs/id33_debug.json")
     # program.load("programs/hit_goal_no_point.json")
