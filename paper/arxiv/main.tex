@@ -923,7 +923,7 @@ Contrastive HoareLSTM     & 98.4      & 93.9      & 87.1     & 97.2       & 99.7
 
 \paragraph{Data source}
 \textit{Code.org} is an online computer science education platform that teaches \EDIT{K-12 students} beginner programming \EDIT{using} a drag-and-drop interface.
-Our dataset is compiled \EDIT{of} 453,211 students \EDIT{who wrote a solution to the Bounce assignment.} In total, there are 711,274 submissions, where 73,611 unique programs were submitted. Since the data are student programs, there is no personally identifiable information in our dataset. \EDIT{All programs have been manually labeled with the set of bugs they contain.} \EDIT{We provide a data risk statement in Section~\ref{sec:data-security}.} 
+Our dataset is compiled \EDIT{of} 453,211 students \EDIT{who wrote a solution to the Bounce assignment.} In total, there are 711,274 submissions, where 111,773 unique programs were submitted. Since the data are student programs, there is no personally identifiable information in our dataset. \EDIT{All programs have been manually labeled with the set of bugs they contain.} \EDIT{We provide a data risk statement in Section~\ref{sec:data-security}.} 
 
 \paragraph{Assignment detail} On Code.org students use a drag-and-drop style code editor to program the game of \EDIT{Bounce, a single player version of Pong where a player tries to bounce a ball into a goal using a paddle.}  
 \EDIT{Students program if/then relationships such as ``when run'', ``launch ball". The ``launch ball" command shoots a ball in a random direction and the randomization is not editable by the agent.} %
@@ -932,8 +932,8 @@ There is no limit on how many commands can be used, allowing freedom to, for exa
 
 \paragraph{Evaluation}
 In an unbounded solution space, the distribution of student submissions incur a heavy tail, as observed by \cite{wu2019zero}. We show that the distribution of submissions in dataset conforms to a Zipf distribution Figure~\ref{fig:log-log-plot}. This suggests that we can partition this dataset into two sections.
-\textbf{Body}: we count any unique program submitted by more than 10 students as the ``body'' of the distribution. It accounts for 85.5\% of the total submissions (607,891). This set contains 419 unique correct programs and 2,613 unique incorrect programs. %
-\textbf{Tail}: This set represents any programs that are submitted less than 10 times. This set contains 66,580 unique incorrect and 3,999 unique correct solutions.
+\textbf{Body}: we count any unique program submitted by more than 10 students as the ``body'' of the distribution. It accounts for 80.0\% (565,714) of the total submissions. This set contains 500 unique correct programs and 2,690 unique incorrect programs. 
+\textbf{Tail}: This set represents any programs that are submitted less than 10 times. This set contains 101,986 unique incorrect and 6,597 unique correct solutions.
 For both Body and Tail distribution, we sample 250 correct and 250 incorrect programs uniformly from each set for evaluation.
 
 
@@ -944,25 +944,19 @@ This shows the potential of play-to-grade algorithms in assisting in real-world 
 
 
 
-
-
-
-
-
-
 \begin{table}[]
-\footnotesize
+\footnotesize+
 \centering 
 \begin{tabular}{@{}lccccc@{}}
 \toprule
                                   &      & \multicolumn{2}{c}{Correct Program} & \multicolumn{2}{c}{Broken Program} \\ 
                                   & Accuracy & Precision              & Recall             & Precision             & Recall             \\ \midrule
-\multicolumn{6}{l}{\textbf{Body Student Programs (607K submissions, 3032 unique)}}        \\ \midrule
+\multicolumn{6}{l}{\textbf{Body Student Programs (566K submissions, 3,190 unique)}}        \\ \midrule
 Majority Class & 50.0 & --- & --- & --- & ---  \\
 Code-as-text & 74.2 & 84.6 & 59.2 & 68.6 & 89.2 \\
 Contrastive HoareLSTM + PTW       &  93.4    &        88.6          &     99.6          &       99.5           &    87.2             \\ 
 \midrule 
-\multicolumn{6}{l}{\textbf{Tail Student Programs (103K submissions, 70579 unique)}}        \\ \midrule
+\multicolumn{6}{l}{\textbf{Tail Student Programs (146K submissions, 108,583 unique)}}        \\ \midrule
 Majority Class & 50.0 & --- & --- & --- & ---  \\
 Code-as-text & 68.4 & 85.9 & 44.0 & 62.4 & 92.8\\
 Contrastive HoareLSTM + PTW       &   94.0   &         91.0         &     97.6            &       97.4           &    90.4             \\
