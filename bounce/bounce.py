@@ -394,7 +394,7 @@ class Ball(object):
             if not self.ball_already_in_goal:
                 ball_x_right = canvas.get_left_x(self.obj) + canvas.get_width(self.obj)
                 # left wall
-                if canvas.get_left_x(self.obj) < total_wall_width:
+                if canvas.get_left_x(self.obj) <= total_wall_width:
                     self.velocity_x = math.fabs(self.velocity_x)
                     self.update_direction(self.velocity_x, self.velocity_y)
                     # self.velocity_x *= -1
@@ -697,7 +697,7 @@ class Bounce(object):
                     ball.destroy()
 
             self.canvas.update()
-            time.sleep(1 / 60)
+            time.sleep(1 / 50)
 
     def prefill_keys(self):
         # used for agents
@@ -919,8 +919,8 @@ class BounceEnv(gym.Env):
 
 if __name__ == '__main__':
     program = Program()
-    # program.set_correct()
-    program.load("programs/launch_no_ball.json")
+    program.set_correct()
+    # program.load("programs/launch_no_ball.json")
 
     # program.load("programs/id33_debug.json")
     # program.load("programs/hit_goal_no_point.json")
