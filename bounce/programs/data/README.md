@@ -61,8 +61,3 @@ only tag with one label "whenRun-noBallLaunch".
 - If the player/agent cannot control the paddle, or the paddle goes the wrong direction, we unify them into one label "whenMove-error", and ignore all other labels.
 - If the paddle does not bounce, this means we can't control the ball to reach any other potential bug state, we also tag programs with just 
 one label "whenPaddle-noBounce".
-  
-**Note**
-
-We corrected a data uniqueness check issue that made us under-counted the number of unique programs in our dataset. This does not affect
-the binary prediction task and results showed in the paper, but it does affect the numbers (number of programs) that we report. The ArXiv report has been corrected, but not the NeurIPS version.
