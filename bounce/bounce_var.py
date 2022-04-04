@@ -4,7 +4,7 @@ Bounce but with invariances
 
 import math
 
-from graphics import Canvas
+from bounce.graphics import Canvas
 import random
 import time
 
@@ -15,7 +15,7 @@ import json
 try:
     from . import utils_seeding as seeding
 except:
-    import utils_seeding as seeding
+    import bounce.utils_seeding as seeding
 
 screen_width = 400
 screen_height = 400
