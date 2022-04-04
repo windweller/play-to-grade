@@ -5,6 +5,7 @@ import random
 import time
 
 import os
+os.environ['SDL_AUDIODRIVER'] = 'dsp'
 
 import json
 
