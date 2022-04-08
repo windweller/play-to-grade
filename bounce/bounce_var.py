@@ -9,6 +9,7 @@ import random
 import time
 
 import os
+os.environ['SDL_AUDIODRIVER'] = 'dsp'
 
 import json
 
@@ -341,7 +342,6 @@ class Ball(object):
         We set self.horizontal_speed and self.vertical_speed
         and recalculate velocity, update it
         """
-        print("in here")
         speed = speed_dict[new_speed]
 
         # both vertical horizontal speeds are the same
@@ -629,7 +629,6 @@ class Bounce(object):
         return speed_text
 
     def set_paddle_speed(self, cmd, context=None):
-        print("in here")
         speed = self.extract_speed(cmd)
         self.paddle.set_speed(speed, context)
 
@@ -886,7 +885,6 @@ class BounceEnv(gym.Env):
         assert reward_type in {ONLY_SELF_SCORE, SELF_MINUS_HALF_OPPO}
         self.reward_type = reward_type
 
-        os.environ['SDL_VIDEODRIVER'] = 'dummy'
         self.viewer = None
         self.num_balls_to_win = num_balls_to_win
         self.finish_reward = finish_reward
