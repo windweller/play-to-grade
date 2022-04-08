@@ -342,7 +342,6 @@ class Ball(object):
         We set self.horizontal_speed and self.vertical_speed
         and recalculate velocity, update it
         """
-        print("in here")
         speed = speed_dict[new_speed]
 
         # both vertical horizontal speeds are the same
@@ -630,7 +629,6 @@ class Bounce(object):
         return speed_text
 
     def set_paddle_speed(self, cmd, context=None):
-        print("in here")
         speed = self.extract_speed(cmd)
         self.paddle.set_speed(speed, context)
 
