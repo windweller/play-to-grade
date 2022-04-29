@@ -4,7 +4,7 @@ Bounce but with invariances
 
 import math
 
-from bounce.graphics import Canvas
+from graphics import Canvas
 import random
 import time
 
@@ -16,7 +16,7 @@ import json
 try:
     from . import utils_seeding as seeding
 except:
-    import bounce.utils_seeding as seeding
+    import utils_seeding as seeding
 
 screen_width = 400
 screen_height = 400
@@ -735,7 +735,8 @@ class Bounce(object):
                     cmds = self.remove_set_cmds(cmds)
                     for cmd in cmds:
                         if cmd == BOUNCE_BALL:
-                            ball.bounce(ball_condition)
+                            pass
+                            # ball.bounce(ball_condition)
                         elif cmd == LAUNCH_NEW_BALL:
                             # yeah, ball immediately disappears
                             # but that's ok...
@@ -990,7 +991,8 @@ class BounceEnv(gym.Env):
 if __name__ == '__main__':
     program = Program()
     program.set_correct()
-    program.load("programs/correct_speed_change.json")
+    # program.load("programs/correct_speed_change.json")
+    program.load("programs/miss_paddle_no_launch_ball.json")
 
     # program.load("programs/hit_goal_no_point.json")
     # program.load("programs/empty.json")

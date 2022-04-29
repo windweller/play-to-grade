@@ -665,7 +665,8 @@ class Bounce(object):
                     cmds = self.remove_set_cmds(cmds)
                     for cmd in cmds:
                         if cmd == BOUNCE_BALL:
-                            ball.bounce(ball_condition)
+                            pass
+                            # ball.bounce(ball_condition)
                         elif cmd == LAUNCH_NEW_BALL:
                             # yeah, ball immediately disappears
                             # but that's ok...
