@@ -70,11 +70,23 @@ class Canvas(object):
         img = pygame_font.render(text, True, BLACK)
         self.text_objs[store_key] = (img, x, y, pygame_font, size)
 
+    def create_white_text(self, x, y, text, font, size, store_key):
+        pygame_font = pygame.font.SysFont(font, size)
+        img = pygame_font.render(text, True, WHITE)
+        self.text_objs[store_key] = (img, x, y, pygame_font, size)
+
     def set_text(self, store_key, text):
         # just update the thing
         if store_key in self.text_objs:
             _, x, y, font, size = self.text_objs[store_key]
             img = font.render(text, True, BLACK)
+            self.text_objs[store_key] = (img, x, y, font, size)
+            # self.create_text(x, y, text, font, size, store_key)
+
+    def set_white_text(self, store_key, text):
+        if store_key in self.text_objs:
+            _, x, y, font, size = self.text_objs[store_key]
+            img = font.render(text, True, WHITE)
             self.text_objs[store_key] = (img, x, y, font, size)
             # self.create_text(x, y, text, font, size, store_key)
 
@@ -132,4 +144,23 @@ class Canvas(object):
         for key, (img, x, y, font, size) in self.text_objs.items():
             self.screen.blit(img, (x, y))
 
+        pygame.display.flip()
+
+    def update_only_objects(self):
+        # no background setup
+
+        for rect, color in self.rectangle_objs:
+            pygame.draw.rect(self.screen, color, rect)
+
+        for rect, radius, color in self.circle_objs:
+            pygame.draw.circle(self.screen, color, rect.center, radius)
+
+        for key, (img, x, y, font, size) in self.text_objs.items():
+            self.screen.blit(img, (x, y))
+
+        self.all_sprites.draw(self.screen)
+
+        # no pygame display flip()
+
+    def flip(self):
         pygame.display.flip()

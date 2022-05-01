@@ -70,10 +70,17 @@ game.run()
 
 Note that you need to have a monitor in order to play. Can't be played in a server environment.
 
+We additionally provide `bounce_var.py` simulator that includes speed setting changes. This simulator is 
+exactly the same as the simulator in `bounce.py`.
+
+We also provide `bounce_theme.py` simulator, that includes both speed setting changes and thematic changes.
+This simulator is different from `bounce.py` and `bounce_var.py` in terms of paddle sizes, etc.
+`bounce_theme.py` is the faithful recreation of the Code.org simulator, but is also the most challenging setting for 
+vision-based RL agent.
+
 ## Bounce: Data
 
-We are still in the process of obtaining permission from Code.org for data release.
- We include the training 10 programs in `./bounce/programs/*.json`. These 
+We include the training 10 programs in `./bounce/programs/*.json`. These 
 programs' format is the same as the programs in the full dataset.
 
 ## Terminology in Code
