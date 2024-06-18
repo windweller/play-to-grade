@@ -4,6 +4,10 @@
 
 Paper: [Play to Grade: Testing Coding Games as Classifying Markov Decision Process](https://arxiv.org/abs/2110.14615)
 
+Blog post: https://anie.me/play2grade/
+
+SAIL Blog post: https://ai.stanford.edu/blog/play-to-grade/
+
 A correct program:
 
 <img src="https://media.giphy.com/media/LhC4oRHFahkxvryfQA/giphy.gif" style='height: 150px; width: 150px;'>
